@@ -11,4 +11,20 @@ public partial class _Default : System.Web.UI.Page
     {
 
     }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        pnlMain.Enabled = false;
+        pnlMain.Visible = false;
+        pnlLogin.Enabled = true;
+        pnlLogin.Visible = true;
+    }
+
+    protected void btnLoginBack_Click(object sender, EventArgs e)
+    {
+        pnlMain.Enabled = true;
+        pnlMain.Visible = true;
+        pnlLogin.Enabled = false;
+        pnlLogin.Visible = false;
+    }
 }
