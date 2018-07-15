@@ -30,7 +30,7 @@
                     <label for="txtPassword">Password</label>
                     <asp:TextBox ID="txtPassword" class="form-control" runat="server"></asp:TextBox>
                     <br />
-                    <asp:Button ID="btnLoginSubmit" class="btn btn-primary" runat="server" Text="Login" />
+                    <asp:Button ID="btnLoginSubmit" class="btn btn-primary" runat="server" Text="Login" OnClick="btnLoginSubmit_Click" />
                 </div>
             </asp:Panel>
             <asp:Panel ID="pnlRegister" runat="server" BorderColor="White">
