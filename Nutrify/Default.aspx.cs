@@ -48,4 +48,14 @@ public partial class _Default : System.Web.UI.Page
     }
 
 
+
+    protected void btnLoginSubmit_Click(object sender, EventArgs e)
+    {
+        Login userLog = new Login();
+        bool loginSuccess = userLog.isLogin(txtUsername.Text, txtPassword.Text);
+        if (loginSuccess)
+        {
+            Response.Redirect("Test.aspx");
+        }
+    }
 }
