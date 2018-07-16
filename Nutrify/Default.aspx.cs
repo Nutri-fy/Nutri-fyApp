@@ -58,4 +58,9 @@ public partial class _Default : System.Web.UI.Page
             Response.Redirect("Test.aspx");
         }
     }
+
+    protected void btnRegisterSubmit_Click(object sender, EventArgs e)
+    {
+
+    }
 }
