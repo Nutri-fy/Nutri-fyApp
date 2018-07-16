@@ -54,7 +54,7 @@
                      <label for="txtRePassword">Re-enter Password</label>
                     <asp:TextBox ID="txtRePassword" class="form-control" runat="server"></asp:TextBox>
                     <br />
-                    <asp:Button ID="btnRegisterSubmit" class="btn btn-primary" runat="server" Text="Register" />
+                    <asp:Button ID="btnRegisterSubmit" class="btn btn-primary" runat="server" Text="Register" OnClick="btnRegisterSubmit_Click" />
                 </div>
             </asp:Panel>
 

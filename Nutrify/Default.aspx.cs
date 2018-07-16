@@ -75,4 +75,9 @@ public partial class _Default : System.Web.UI.Page
             refreshLogin();
         }
     }
+
+    protected void btnRegisterSubmit_Click(object sender, EventArgs e)
+    {
+
+    }
 }
