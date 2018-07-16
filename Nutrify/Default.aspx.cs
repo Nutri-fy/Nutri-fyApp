@@ -55,7 +55,7 @@ public partial class _Default : System.Web.UI.Page
         bool loginSuccess = userLog.isLogin(txtUsername.Text, txtPassword.Text);
         if (loginSuccess)
         {
-            Response.Redirect("Test.aspx");
+           // Response.Redirect("Test.aspx");
         }
     }
 }
