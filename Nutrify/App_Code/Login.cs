@@ -7,7 +7,6 @@ using System.Web;
 /// <summary>
 /// Summary description for Login
 /// </summary>
-/// //test
 public class Login
 {
     private SqlConnection conn = new SqlConnection();
