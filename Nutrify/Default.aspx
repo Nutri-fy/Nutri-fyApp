@@ -28,7 +28,7 @@
                     <asp:TextBox ID="txtUsername" class="form-control" runat="server"></asp:TextBox>
                     <br />
                     <label for="txtPassword">Password</label>
-                    <asp:TextBox ID="txtPassword" class="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
                     <br />
                     <asp:Button ID="btnLoginSubmit" class="btn btn-primary" runat="server" Text="Login" OnClick="btnLoginSubmit_Click" />
                 </div>
@@ -54,7 +54,7 @@
                      <label for="txtRePassword">Re-enter Password</label>
                     <asp:TextBox ID="txtRePassword" class="form-control" runat="server"></asp:TextBox>
                     <br />
-                    <asp:Button ID="btnRegisterSubmit" class="btn btn-primary" runat="server" Text="Register" />
+                    <asp:Button ID="btnRegisterSubmit" class="btn btn-primary" runat="server" Text="Register" OnClick="btnRegisterSubmit_Click" />
                 </div>
             </asp:Panel>
 

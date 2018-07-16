@@ -9,6 +9,8 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        pnlMain.Enabled = true;
+        pnlMain.Visible = true;
         pnlLogin.Enabled = false;
         pnlLogin.Visible = false;
         pnlRegister.Enabled = false;
@@ -47,6 +49,16 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister.Visible = false;
     }
 
+    protected void refreshLogin()
+    {
+        pnlMain.Enabled = false;
+        pnlMain.Visible = false;
+        pnlLogin.Enabled = true;
+        pnlLogin.Visible = true;
+        txtUsername.BorderColor = System.Drawing.Color.Red;
+        txtUsername.BorderWidth = 2;
+    }
+
 
 
     protected void btnLoginSubmit_Click(object sender, EventArgs e)
@@ -57,5 +69,15 @@ public partial class _Default : System.Web.UI.Page
         {
            // Response.Redirect("Test.aspx");
         }
+        else
+        {
+            Response.Write("<script>alert('Login Unsuccessful!');</script>");
+            refreshLogin();
+        }
+    }
+
+    protected void btnRegisterSubmit_Click(object sender, EventArgs e)
+    {
+
     }
 }
