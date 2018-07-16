@@ -10,7 +10,7 @@ using System.Web;
 public class Login
 {
     private SqlConnection conn = new SqlConnection();
-    private string conString = "Server=DEEMANTHA\\SQLEXPRESS; Database=class2018; User=deemantha; Password=deemantha";
+    private string conString = "Server=den1.mssql2.gear.host; Database=class2018; User=class2018; Password=c#class";
     private SqlCommand cmd;
     
     public bool isLogin(string uname, string pass)
