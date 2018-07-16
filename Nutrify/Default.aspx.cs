@@ -80,4 +80,9 @@ public partial class _Default : System.Web.UI.Page
     {
 
     }
+
+    protected void btnRegisterSubmit_Click(object sender, EventArgs e)
+    {
+
+    }
 }
