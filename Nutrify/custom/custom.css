@@ -13,57 +13,130 @@
 }
 
 #pnlMain {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 450px;
     height: 350px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border-radius: 2px;
-    overflow: hidden;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.5);
 }
-#pnlLogin {
-    position: relative;
+
+#welcomeHeading {
+    position: absolute;
+    left: 50%;
+    margin-left: -20%;
+   color: white;
+}
+
+#loginHeading {
+    position: absolute;
+    left: 50%;
+    margin-left: -13%;
+    color: white;
+}
+
+#registerHeading {
+    position: absolute;
+    left: 50%;
+    margin-left: -10%;
+    color: white;
+}
+
+label{
+    color: white;
+}
+
+#divBtnLogin{
+    position: absolute;
+    width: 80%;
+    top: 20%;
+    left: 50%;
+    margin-left: -40%;
+}
+
+#divBtnRegister {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    margin-left: -40%;
+}
+
+#loginForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 450px;
     height: 350px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border-radius: 2px;
-    overflow: hidden;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.5);
+}
+
+#loginControls{
+    position:absolute;
+    width: 80%;
+    left: 10%;
+    top: 20%;
 }
 
 #btnLoginSubmit {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
     display: block;
+    bottom: -25%;
+    right: 0;
+    width: 100px;
 }
 
-#btnLoginBack{
-    position: fixed;
-    left:1%;
+#btnLoginBack {
+    position: absolute;
+    display: block;
+    bottom: -25%;
+    left: 0;
+    width: 100px;
 }
 
 #registerForm {
-    position: relative;
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border-radius: 2px;
-    overflow: hidden;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 900px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.5);
+}
+
+#registerControls {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 15%;
 }
 
 #btnRegisterSubmit {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
     display: block;
+    bottom: -7%;
+    right: 0;
+    width: 100px;
 }
 
 #btnRegisterBack {
-    position: fixed;
-    left: 1%;
+    position: absolute;
+    display: block;
+    bottom: -7%;
+    left: 0;
+    width: 100px;
+}
+
+#col1, #col3, #col5{
+    padding-left:0;
+}
+
+#col2, #col4, #col6{
+    padding-right:0;
 }
 

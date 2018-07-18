@@ -35,10 +35,10 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLoginBack_Click1(object sender, EventArgs e)
     {
-        pnlMain.Enabled = true;
-        pnlMain.Visible = true;
         pnlLogin.Enabled = false;
         pnlLogin.Visible = false;
+        pnlMain.Enabled = true;
+        pnlMain.Visible = true;
     }
 
     protected void btnRegisterBack_Click(object sender, EventArgs e)
