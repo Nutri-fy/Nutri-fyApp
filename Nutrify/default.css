@@ -106,7 +106,7 @@ a:hover {
 }
 
 #splash {
-	width: 770px;
+	width: 100%;
 	height: 190px;
 	margin: 0 auto;
 	background: url(images/img3.jpg) no-repeat;

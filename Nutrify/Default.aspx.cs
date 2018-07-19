@@ -108,8 +108,8 @@ public partial class _Default : System.Web.UI.Page
         else
         {
 
-            txtHiddenU = null;
-            txtHiddenP = null;
+           // txtHiddenU = null;
+           // txtHiddenP = null;
             
            refreshLogin();
         }
