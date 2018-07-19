@@ -165,7 +165,7 @@
                             <asp:Panel ID="pnlCalculateValues" runat="server">
                                 <div class="row">
                                     <div id="col21" class="col">
-                                        <asp:Button ID="btnCalculateCaloriesMacros" class="btn btn-primary" runat="server" Text="Calculate" CausesValidation="False" OnClick="btnCalculateCaloriesMacros_Click" />
+                                        <asp:Button ID="btnCalculateCaloriesMacros" class="btn btn-primary" runat="server" Text="Calculate" CausesValidation="False" OnClick="btnCalculateCaloriesMacros_Click"/>
                                     </div>
                                 </div>
                             </asp:Panel>

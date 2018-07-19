@@ -10,6 +10,7 @@ public partial class _Default : System.Web.UI.Page
 {
     User one = new User();
     CalorieCalculator cc = new CalorieCalculator();
+    Register reg = new Register();
     protected void Page_Load(object sender, EventArgs e)
     {
         pnlMain.Enabled = true;
@@ -66,12 +67,11 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnContinue_Click(object sender, EventArgs e)
     {
-        one.userName = txtRegUsername.Text;
-        one.firstName = txtFirstname.Text;
-        one.lastName = txtLastname.Text;
-        one.password = txtRegPassword.Text;
-        one.email = txtEmail.Text;
-        one.isAdmin = 0;
+        this.Session.Add("sUsername", txtRegUsername.Text);
+        this.Session.Add("sFirstName", txtFirstname.Text);
+        this.Session.Add("sLastName", txtLastname.Text);
+        this.Session.Add("sPassword", txtRegPassword.Text);
+        this.Session.Add("sEmail", txtEmail.Text);
 
         pnlMain.Enabled = false;
         pnlMain.Visible = false;
@@ -111,53 +111,50 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnRegisterSubmit_Click(object sender, EventArgs e)
     {
+        one.userName = Session["sUsername"].ToString();
+        one.firstName = Session["sFirstName"].ToString();
+        one.lastName = Session["sLastName"].ToString();
+        one.password = Session["sPassword"].ToString();
+        one.email = Session["sEmail"].ToString();
+        one.isAdmin = 0;
 
-        if(RadioButtonList1.SelectedValue == "0")
+        if (RadioButtonList1.SelectedValue == "0")
         {
+            
+
             one.age = Convert.ToInt32(txtAge.Text);
             one.gender = Convert.ToInt32(ddGender.SelectedValue);
             one.height = Convert.ToInt32(txtHeight.Text);
             one.weight = Convert.ToDouble(txtWeight.Text);
             one.activity = Convert.ToDouble(ddActivity.SelectedValue);
+            one.calories = Convert.ToDouble(txtCaloriesResults.Text);
+            one.bFat = 0;
+            one.numOfMeals = Convert.ToInt32(ddMeals.SelectedValue);
             one.goal = Convert.ToInt32(ddGoal.SelectedValue);
-
+            one.prPro = Convert.ToDouble(txtPrProResults.Text);
+            one.prCarbs = Convert.ToDouble(txtPrCarbResults.Text);
+            one.prFats = Convert.ToDouble(txtPrFatResults.Text);
+            reg.sendRegister(one);
         }
-
-
-        SqlConnection conn = new SqlConnection();
-        string conString = "Server=den1.mssql2.gear.host; Database=class2018; User=class2018; Password=c#class";
-        SqlCommand cmd;
-
-        conn.ConnectionString = conString;
-        cmd = conn.CreateCommand();
-
-        string userName = txtRegUsername.Text;
-        string password = txtRegPassword.Text;
-        string email = txtEmail.Text;
-        int isAdmin = 0;
-        int height = 0;
-        double weight = 0;
-        double calories = 0;
-        double bodyFat = 0;
-        int numOfMeals = 0;
-        int goal = 0;
-        double prPro = 0;
-        double prCarb = 0;
-        double prFat = 0;
-
-        try
+        else
         {
-            string query = "Insert into UserInfo values ('" + userName + "','" + password + "','" + email + "', '" + isAdmin + "', '" + height + "', '" + weight + "', '" + calories + "', " +
-                "'" + bodyFat + "', '" + numOfMeals + "', '" + goal + "', '" + prPro + "', '" + prCarb + "', '" + prFat + "');";
-            cmd.CommandText = query;
-            conn.Open();
-            cmd.ExecuteScalar();
+            one.age = Convert.ToInt32(txtAge.Text);
+            one.gender = Convert.ToInt32(ddGender.SelectedValue);
+            one.height = Convert.ToInt32(txtHeight.Text);
+            one.weight = Convert.ToDouble(txtWeight.Text);
+            one.activity = 0;
+            one.calories = Convert.ToDouble(txtEnterCalories.Text);
+            one.bFat = 0;
+            one.numOfMeals = Convert.ToInt32(ddMeals2.SelectedValue);
+            one.goal = 0;
+            one.prPro = Convert.ToDouble(txtPrPro.Text);
+            one.prCarbs = Convert.ToDouble(txtPrCarb.Text);
+            one.prFats = Convert.ToDouble(txtPrFat.Text);
+            reg.sendRegister(one);
         }
-        finally
-        {
-            cmd.Dispose();
-            conn.Close();
-        }
+
+
+
     }
 
     protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,7 +185,7 @@ public partial class _Default : System.Web.UI.Page
             pnlEnterCal.Visible = true;
             pnlRegister2FormControl.Enabled = true;
             pnlRegister2FormControl.Visible = true;
-            register2Form.Attributes.Add("style", "height:500px");
+            register2Form.Attributes.Add("style", "height:600px");
             pnlCalculateValues.Enabled = false;
             pnlCalculateValues.Visible = false;
             pnlCalculateResults.Enabled = false;
