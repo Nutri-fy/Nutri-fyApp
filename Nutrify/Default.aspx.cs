@@ -83,6 +83,7 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister.Visible = false;
         pnlRegister2.Enabled = true;
         pnlRegister2.Visible = true;
+       
     }
 
     protected void refreshLogin()
@@ -168,7 +169,8 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister2.Visible = true;
         pnlRegister2FormControl.Enabled = true;
         pnlRegister2FormControl.Visible = true;
-        if(RadioButtonList1.SelectedValue == "0")
+        
+        if (RadioButtonList1.SelectedValue == "0")
         {
             pnlCalculateCal.Enabled = true;
             pnlCalculateCal.Visible = true;

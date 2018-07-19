@@ -88,7 +88,7 @@
                         </div>
                         <br />
                         <asp:Button ID="btnRegisterBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnRegisterBack_Click" CausesValidation="False" />
-                        <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="False" />
+                        <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="False"  />
                     </div>
                 </div>
             </asp:Panel>
@@ -148,7 +148,7 @@
                                         <asp:ListItem Value="3">Weight Gain</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="ReqGoal" runat="server" ControlToValidate="ddGoal"
-                                     ErrorMessage="Goal Required" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
+                                     ErrorMessage="Goal Required" ForeColor="Red" InitialValue="0" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                                 <div id="col26" class="col">
                                     <label for="ddMeals">Number of Meals</label>
@@ -161,7 +161,7 @@
                                         <asp:ListItem Value="6">6 Meals/Day</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="ReqMeal" runat="server" ControlToValidate="ddMeals"
-                                     ErrorMessage="Number of meals required" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
+                                     ErrorMessage="Number of meals required" ForeColor="Red" InitialValue="0" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="row">
@@ -218,7 +218,7 @@
                                     <label for="txtEnterCalories">Please Enter Your Calories (kJ)</label>
                                     <asp:TextBox ID="txtEnterCalories" class="form-control" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="ReqCal" runat="server" ControlToValidate="txtEnterCalories"
-                                     ErrorMessage="Please enter your calories" ForeColor="Red"></asp:RequiredFieldValidator>
+                                     ErrorMessage="Please enter your calories" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="row">
@@ -247,13 +247,13 @@
                                     <label for="txtPrCarb">Percent Carbohydrates (%)</label>
                                     <asp:TextBox ID="txtPrCarb" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPrCarb" runat="server" ControlToValidate="txtPrCarb"
-                                     ErrorMessage="Please enter your carbohydrates percentage" ForeColor="Red"></asp:RequiredFieldValidator>
+                                     ErrorMessage="Please enter your carbohydrates percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                                 <div id="col20" class="col">
                                     <label for="txtPrFat">Percent Fats (%)</label>
                                     <asp:TextBox ID="txtPrFat" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPrFat" runat="server" ControlToValidate="txtPrFat"
-                                     ErrorMessage="Please enter your fat percentage" ForeColor="Red"></asp:RequiredFieldValidator>
+                                     ErrorMessage="Please enter your fat percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </asp:Panel>
