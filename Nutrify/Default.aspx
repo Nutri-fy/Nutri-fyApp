@@ -31,7 +31,7 @@
                     <div id="loginControls" aria-autocomplete="none">
                         <label for="txtUsername">Username</label>
                         <asp:TextBox ID="txtUsername" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="ReqName" runat="server" ControlToValidate="txtUsername" ErrorMessage="Please enter Username" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="ReqName" runat="server" ControlToValidate="txtUsername" ErrorMessage="Please enter Username" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                         <asp:CompareValidator ID="cmpUserName" runat="server" ErrorMessage="Incorrect Username" ControlToCompare="txtHiddenUsername" ControlToValidate="txtUsername" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                         <br />
                         <label for="txtPassword">Password</label>

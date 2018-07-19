@@ -11,6 +11,7 @@ public partial class _Default : System.Web.UI.Page
     User one = new User();
     CalorieCalculator cc = new CalorieCalculator();
     Register reg = new Register();
+    Login userLog = new Login();
     protected void Page_Load(object sender, EventArgs e)
     {
         pnlMain.Enabled = true;
@@ -97,9 +98,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLoginSubmit_Click(object sender, EventArgs e)
     {
-        Login userLog = new Login();
-        txtHiddenUsername.Text = userLog.loginInfo[0];
-        txtHiddenPassword.Text = userLog.loginInfo[1];
+        
         bool loginSuccess = userLog.isLogin(txtUsername.Text, txtPassword.Text);
         if (loginSuccess)
         {
@@ -108,13 +107,14 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
+            refreshLogin();
             txtHiddenUsername.Text = userLog.loginInfo[0];
             txtHiddenPassword.Text = userLog.loginInfo[1];
             cmpUserName.ValueToCompare = txtHiddenUsername.Text;
             cmpUserName.Validate();
             cmpUserName.ValueToCompare = txtHiddenPassword.Text;
             cmpPassword.Validate();
-            refreshLogin(); ;
+            
         }
     }
 

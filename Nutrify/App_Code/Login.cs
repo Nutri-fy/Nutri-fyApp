@@ -38,7 +38,7 @@ public class Login
                 cmd.CommandText = queryUserName;
                 loginInfo[0] = cmd.ExecuteScalar().ToString();
 
-                string queryPassword = "SELECT password from password where password like '" + pass + "';";
+                string queryPassword = "SELECT password from UserInfo where password like '" + pass + "';";
                 cmd.CommandText = queryPassword;
                 loginInfo[1] = cmd.ExecuteScalar().ToString();
                 return true;
@@ -49,7 +49,7 @@ public class Login
                 cmd.CommandText = queryUserName;
                 loginInfo[0] = cmd.ExecuteScalar().ToString();
 
-                string queryPassword = "SELECT password from password where password like '" + pass + "';";
+                string queryPassword = "SELECT password from UserInfo where password like '" + pass + "';";
                 cmd.CommandText = queryPassword;
                 loginInfo[1] = cmd.ExecuteScalar().ToString();
                 return false;
