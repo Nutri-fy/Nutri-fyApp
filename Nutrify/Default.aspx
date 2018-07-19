@@ -32,10 +32,12 @@
                         <label for="txtUsername">Username</label>
                         <asp:TextBox ID="txtUsername" class="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ReqName" runat="server" ControlToValidate="txtUsername" ErrorMessage="Please enter Username" ForeColor="Red"></asp:RequiredFieldValidator>
+                      
                         <br />
                         <label for="txtPassword">Password</label>
                         <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ReqPass" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter password" ForeColor="Red"></asp:RequiredFieldValidator>
+                     
                         <br />
                         <asp:Button ID="btnLoginBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnLoginBack_Click1" CausesValidation="False" />
                         <asp:Button ID="btnLoginSubmit" class="btn btn-primary" runat="server" Text="Login" OnClick="btnLoginSubmit_Click" />
@@ -51,6 +53,7 @@
                                 <label for="txtRegUsername">Username</label>
                                 <asp:TextBox ID="txtRegUsername" class="form-control" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="ReqRegName" runat="server" ControlToValidate="txtRegUsername" ErrorMessage="Please enter Username" ForeColor="Red"></asp:RequiredFieldValidator>
+                                
                             </div>
                             <div id="col2" class="col">
                                 <label for="txtEmail">Email</label>
