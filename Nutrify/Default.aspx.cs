@@ -91,24 +91,30 @@ public partial class _Default : System.Web.UI.Page
         pnlMain.Visible = false;
         pnlLogin.Enabled = true;
         pnlLogin.Visible = true;
-        txtUsername.BorderColor = System.Drawing.Color.Red;
-        txtUsername.BorderWidth = 2;
     }
 
 
 
     protected void btnLoginSubmit_Click(object sender, EventArgs e)
     {
+        txtHiddenUsername.Text = txtUsername.Text;
+        txtHiddenPassword.Text = txtPassword.Text;
         Login userLog = new Login();
         bool loginSuccess = userLog.isLogin(txtUsername.Text, txtPassword.Text);
         if (loginSuccess)
         {
-           Response.Redirect("Test.aspx");
+            txtHiddenUsername.Text = userLog.loginInfo[0];
+            txtHiddenPassword.Text = userLog.loginInfo[1];
+            this.Session.Add("sUserId", userLog.getUserId());
+            Response.Redirect("Test.aspx");
         }
         else
         {
-            
-           refreshLogin();
+            txtHiddenUsername.Text = userLog.loginInfo[0];
+            txtHiddenPassword.Text = userLog.loginInfo[1];
+            cmpUserName.ValueToCompare = txtHiddenUsername.Text;
+            cmpUserName.ValueToCompare = txtHiddenPassword.Text;
+            refreshLogin(); ;
         }
     }
 
