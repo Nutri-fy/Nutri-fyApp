@@ -44,6 +44,13 @@
     color: white;
 }
 
+#register2Heading {
+    position: absolute;
+    left: 50%;
+    margin-left: -13%;
+    color: white;
+}
+
 label{
     color: white;
 }
@@ -109,11 +116,37 @@ label{
     background: rgba(0,0,0,0.5);
 }
 
+#register2Form {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 900px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.5);
+}
+
 #registerControls {
     position: absolute;
     width: 80%;
     left: 10%;
     top: 15%;
+}
+
+#register2Controls {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 15%;
+}
+
+#btnContinue {
+    position: absolute;
+    display: block;
+    bottom: -7%;
+    right: 0;
+    width: 100px;
 }
 
 #btnRegisterSubmit {
@@ -132,6 +165,14 @@ label{
     width: 100px;
 }
 
+#btnCancel {
+    position: absolute;
+    display: block;
+    bottom: -7%;
+    left: 0;
+    width: 100px;
+}
+
 #col1, #col3, #col5{
     padding-left:0;
 }
@@ -140,3 +181,32 @@ label{
     padding-right:0;
 }
 
+#RadioButtonList1 {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ddGender {
+    width: 100%;
+}
+
+#ddGoal {
+    width: 100%;
+}
+
+#ddActivity {
+    width: 100%;
+}
+
+#pnlRegister2FormControl {
+    position: relative;
+    margin-top: 15%;
+}
+
+#btnCalculateCaloriesMacros {
+    position: relative;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    width: 100px;
+}
