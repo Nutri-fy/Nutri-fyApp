@@ -217,6 +217,7 @@ public partial class _Default : System.Web.UI.Page
         pnlCalculateValues.Visible = true;
         pnlCalculateResults.Enabled = true;
         pnlCalculateResults.Visible = true;
+        
 
         cc.age = Convert.ToInt32(txtAge.Text);
         cc.gender = Convert.ToInt32(ddGender.SelectedValue);
