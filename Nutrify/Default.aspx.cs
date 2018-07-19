@@ -97,14 +97,12 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLoginSubmit_Click(object sender, EventArgs e)
     {
-        txtHiddenUsername.Text = txtUsername.Text;
-        txtHiddenPassword.Text = txtPassword.Text;
         Login userLog = new Login();
+        txtHiddenUsername.Text = userLog.loginInfo[0];
+        txtHiddenPassword.Text = userLog.loginInfo[1];
         bool loginSuccess = userLog.isLogin(txtUsername.Text, txtPassword.Text);
         if (loginSuccess)
         {
-            txtHiddenUsername.Text = userLog.loginInfo[0];
-            txtHiddenPassword.Text = userLog.loginInfo[1];
             this.Session.Add("sUserId", userLog.getUserId());
             Response.Redirect("Test.aspx");
         }
@@ -113,7 +111,9 @@ public partial class _Default : System.Web.UI.Page
             txtHiddenUsername.Text = userLog.loginInfo[0];
             txtHiddenPassword.Text = userLog.loginInfo[1];
             cmpUserName.ValueToCompare = txtHiddenUsername.Text;
+            cmpUserName.Validate();
             cmpUserName.ValueToCompare = txtHiddenPassword.Text;
+            cmpPassword.Validate();
             refreshLogin(); ;
         }
     }
