@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
@@ -79,6 +80,42 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnRegisterSubmit_Click(object sender, EventArgs e)
     {
+        SqlConnection conn = new SqlConnection();
+        string conString = "Server=den1.mssql2.gear.host; Database=class2018; User=class2018; Password=c#class";
+        SqlCommand cmd;
 
+        conn.ConnectionString = conString;
+        cmd = conn.CreateCommand();
+
+        string userName = txtRegUsername.Text;
+        string password = txtRegPassword.Text;
+        string email = txtEmail.Text;
+        int isAdmin = 0;
+        int height = 0;
+        double weight = 0;
+        double calories = 0;
+        double bodyFat = 0;
+        int numOfMeals = 0;
+        int goal = 0;
+        double prPro = 0;
+        double prCarb = 0;
+        double prFat = 0;
+
+        try
+        {
+            string query = "Insert into UserInfo values ('" + userName + "','" + password + "','" + email + "', '" + isAdmin + "', '" + height + "', '" + weight + "', '" + calories + "', " +
+                "'" + bodyFat + "', '" + numOfMeals + "', '" + goal + "', '" + prPro + "', '" + prCarb + "', '" + prFat + "');";
+            cmd.CommandText = query;
+            conn.Open();
+            cmd.ExecuteScalar();
+        }
+        finally
+        {
+            cmd.Dispose();
+            conn.Close();
+        }
     }
-}
+} 
+        
+
+      
