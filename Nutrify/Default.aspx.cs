@@ -19,6 +19,7 @@ public partial class _Default : System.Web.UI.Page
         pnlLogin.Visible = false;
         pnlRegister.Enabled = false;
         pnlRegister.Visible = false;
+
         pnlRegister2.Enabled = false;
         pnlRegister2.Visible = false;
         pnlCalculateCal.Enabled = false;
@@ -31,6 +32,9 @@ public partial class _Default : System.Web.UI.Page
         pnlCalculateValues.Visible = false;
         pnlCalculateResults.Enabled = false;
         pnlCalculateResults.Visible = false;
+
+   
+
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -103,8 +107,10 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-           
-           Response.Write("<script>alert('Login Unsuccessful!');</script>");
+
+            txtHiddenU = null;
+            txtHiddenP = null;
+            
            refreshLogin();
         }
     }
