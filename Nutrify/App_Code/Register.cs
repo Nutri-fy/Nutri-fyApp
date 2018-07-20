@@ -9,13 +9,15 @@ using System.Web;
 /// </summary>
 public class Register
 {
+    SqlConnection conn = new SqlConnection();
+    string conString = "Server=den1.mssql2.gear.host; Database=class2018; User=class2018; Password=c#class";
+    SqlCommand cmd;
+
     public Register() { }
 
     public void sendRegister(User user)
     {
-        SqlConnection conn = new SqlConnection();
-        string conString = "Server=den1.mssql2.gear.host; Database=class2018; User=class2018; Password=c#class";
-        SqlCommand cmd;
+       
 
         conn.ConnectionString = conString;
         cmd = conn.CreateCommand();
@@ -29,6 +31,32 @@ public class Register
             cmd.CommandText = query;
             conn.Open();
             cmd.ExecuteScalar();
+        }
+        finally
+        {
+            cmd.Dispose();
+            conn.Close();
+        }
+    }
+
+    public bool validateUsername(string uname)
+    {
+        conn.ConnectionString = conString;
+        cmd = conn.CreateCommand();
+        conn.Open();
+        try
+        {
+            string query = "SELECT COUNT (*) from UserInfo where userName like '" + uname + "';";
+            cmd.CommandText = query;
+            string result = cmd.ExecuteScalar().ToString();
+            if (result == "1")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         finally
         {
