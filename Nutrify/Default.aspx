@@ -90,7 +90,9 @@
                         </div>
                         <br />
                         <asp:Button ID="btnRegisterBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnRegisterBack_Click" CausesValidation="False" />
+
                         <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="True" />
+
                     </div>
                 </div>
                 <asp:TextBox ID="txtHiddenRegUsername" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
@@ -103,14 +105,18 @@
                             <div id="col10" class="col">
                                 <label for="txtAge">Age</label>
                                 <asp:TextBox ID="txtAge" class="form-control" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="ReqAge" runat="server" ControlToValidate="txtAge" ErrorMessage="Please enter you age" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
                             </div>
                             <div id="col11" class="col">
                                 <label for="txtHeight">Height (cm)</label>
                                 <asp:TextBox ID="txtHeight" class="form-control" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="ReqHeight" runat="server" ControlToValidate="txtHeight" ErrorMessage="Please enter your height" ForeColor="Red" BorderStyle="NotSet" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                             <div id="col12" class="col">
                                 <label for="txtWeight">Weight (kg)</label>
                                 <asp:TextBox ID="txtWeight" class="form-control" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="ReqWeight" runat="server" ControlToValidate="txtWeight" ErrorMessage="Please enter your weight" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="row">
@@ -118,7 +124,9 @@
                                 <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
                                     <asp:ListItem Value="0">Let Us Calculate Your Calories and Macros (Almost There)</asp:ListItem>
                                     <asp:ListItem Value="1">Know Your Stuff? Customize!</asp:ListItem>
+                                    
                                 </asp:RadioButtonList>
+                                
                             </div>
                         </div>
                         <asp:Panel ID="pnlCalculateCal" runat="server">
@@ -127,31 +135,38 @@
                                     <label for="ddGender">Gender</label>
                                     <br />
                                     <asp:DropDownList ID="ddGender" class="btn btn-secondary dropdown-toggle" runat="server">
-                                        <asp:ListItem Value="">Please Pick a Gender</asp:ListItem>
+                                        <asp:ListItem Value="0">Please Pick a Gender</asp:ListItem>
                                         <asp:ListItem Value="1">Male</asp:ListItem>
                                         <asp:ListItem Value="2">Female</asp:ListItem>
                                     </asp:DropDownList>
+                                     <asp:RequiredFieldValidator ID="ReqGender" runat="server" ControlToValidate="ddGender"
+                                     ErrorMessage="Gender Required" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
+           
                                 </div>
                                 <div id="col15" class="col">
                                     <label for="ddGoal">Goal</label>
                                     <br />
                                     <asp:DropDownList ID="ddGoal" class="btn btn-secondary dropdown-toggle" runat="server">
-                                        <asp:ListItem Value="">Please Pick a Goal</asp:ListItem>
+                                        <asp:ListItem Value="0">Please Pick a Goal</asp:ListItem>
                                         <asp:ListItem Value="1">Maintenance</asp:ListItem>
                                         <asp:ListItem Value="2">Weight Loss</asp:ListItem>
                                         <asp:ListItem Value="3">Weight Gain</asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="ReqGoal" runat="server" ControlToValidate="ddGoal"
+                                     ErrorMessage="Goal Required" ForeColor="Red" InitialValue="0" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                                 <div id="col26" class="col">
                                     <label for="ddMeals">Number of Meals</label>
                                     <br />
                                     <asp:DropDownList ID="ddMeals" class="btn btn-secondary dropdown-toggle" runat="server">
-                                        <asp:ListItem Value="">Please Pick Meal Frequency (including snacks)</asp:ListItem>
+                                        <asp:ListItem Value="0">Please Pick Meal Frequency (including snacks)</asp:ListItem>
                                         <asp:ListItem Value="3">3 Meals/Day</asp:ListItem>
                                         <asp:ListItem Value="4">4 Meals/Day</asp:ListItem>
                                         <asp:ListItem Value="5">5 Meals/Day</asp:ListItem>
                                         <asp:ListItem Value="6">6 Meals/Day</asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="ReqMeal" runat="server" ControlToValidate="ddMeals"
+                                     ErrorMessage="Number of meals required" ForeColor="Red" InitialValue="0" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="row">
@@ -159,19 +174,21 @@
                                     <label for="ddActivity">Activity Level</label>
                                     <br />
                                     <asp:DropDownList ID="ddActivity" class="btn btn-secondary dropdown-toggle" runat="server">
-                                        <asp:ListItem Value="">Please Pick an Activity Level</asp:ListItem>
+                                        <asp:ListItem Value="0">Please Pick an Activity Level</asp:ListItem>
                                         <asp:ListItem Value="1.2">Sedentary - little or no exericse</asp:ListItem>
                                         <asp:ListItem Value="1.3">Lightly Active - exercise/sports 1-3 times/week</asp:ListItem>
                                         <asp:ListItem Value="1.4">Moderately Active - exercise/sports 3-5 times/week</asp:ListItem>
                                         <asp:ListItem Value="1.5">Very Active - hard exercise/sports 6-7 times/week)</asp:ListItem>
                                         <asp:ListItem Value="1.6">Extra Active - very hard sports/exercise/physical job</asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="ReqActivity" runat="server" ControlToValidate="ddActivity"
+                                     ErrorMessage="Please pick activity level" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <asp:Panel ID="pnlCalculateValues" runat="server">
                                 <div class="row">
                                     <div id="col21" class="col">
-                                        <asp:Button ID="btnCalculateCaloriesMacros" class="btn btn-primary" runat="server" Text="Calculate" CausesValidation="False" OnClick="btnCalculateCaloriesMacros_Click"/>
+                                        <asp:Button ID="btnCalculateCaloriesMacros" class="btn btn-primary" runat="server" Text="Calculate" CausesValidation="True" OnClick="btnCalculateCaloriesMacros_Click"/>
                                     </div>
                                 </div>
                             </asp:Panel>
@@ -205,6 +222,8 @@
                                 <div id="col17" class="col">
                                     <label for="txtEnterCalories">Please Enter Your Calories (kJ)</label>
                                     <asp:TextBox ID="txtEnterCalories" class="form-control" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="ReqCal" runat="server" ControlToValidate="txtEnterCalories"
+                                     ErrorMessage="Please enter your calories" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="row">
@@ -212,26 +231,34 @@
                                     <label for="ddMeals2">Number of Meals</label>
                                     <br />
                                     <asp:DropDownList ID="ddMeals2" class="btn btn-secondary dropdown-toggle" runat="server">
-                                        <asp:ListItem Value="">Please Pick Meal Frequency (including snacks)</asp:ListItem>
+                                        <asp:ListItem Value="0">Please Pick Meal Frequency (including snacks)</asp:ListItem>
                                         <asp:ListItem Value="3">3 Meals/Day</asp:ListItem>
                                         <asp:ListItem Value="4">4 Meals/Day</asp:ListItem>
                                         <asp:ListItem Value="5">5 Meals/Day</asp:ListItem>
                                         <asp:ListItem Value="6">6 Meals/Day</asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="ReqddMeals2" runat="server" ControlToValidate="ddMeals2"
+                                     ErrorMessage="Number of meals required" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="row">
                                 <div id="col18" class="col">
                                     <label for="txtPrPro">Percent Proteins (%)</label>
                                     <asp:TextBox ID="txtPrPro" class="form-control" runat="server"></asp:TextBox>
+                                     <asp:RequiredFieldValidator ID="ReqPro" runat="server" ControlToValidate="txtPrPro"
+                                     ErrorMessage="Please enter protein percentage" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                                 <div id="col19" class="col">
                                     <label for="txtPrCarb">Percent Carbohydrates (%)</label>
                                     <asp:TextBox ID="txtPrCarb" class="form-control" runat="server"></asp:TextBox>
+                                     <asp:RequiredFieldValidator ID="ReqPrCarb" runat="server" ControlToValidate="txtPrCarb"
+                                     ErrorMessage="Please enter your carbohydrates percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                                 <div id="col20" class="col">
                                     <label for="txtPrFat">Percent Fats (%)</label>
                                     <asp:TextBox ID="txtPrFat" class="form-control" runat="server"></asp:TextBox>
+                                     <asp:RequiredFieldValidator ID="ReqPrFat" runat="server" ControlToValidate="txtPrFat"
+                                     ErrorMessage="Please enter your fat percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </asp:Panel>
