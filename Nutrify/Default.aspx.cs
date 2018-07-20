@@ -34,8 +34,6 @@ public partial class _Default : System.Web.UI.Page
         pnlCalculateResults.Enabled = false;
         pnlCalculateResults.Visible = false;
 
-   
-
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -98,7 +96,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLoginSubmit_Click(object sender, EventArgs e)
     {
-        
+
         bool loginSuccess = userLog.isLogin(txtUsername.Text, txtPassword.Text);
         if (loginSuccess)
         {
@@ -108,13 +106,15 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             refreshLogin();
-            txtHiddenUsername.Text = userLog.loginInfo[0];
-            txtHiddenPassword.Text = userLog.loginInfo[1];
+            txtHiddenUsername.Text = "";
+            txtHiddenPassword.Text = "";
             cmpUserName.ValueToCompare = txtHiddenUsername.Text;
             cmpUserName.Validate();
             cmpUserName.ValueToCompare = txtHiddenPassword.Text;
             cmpPassword.Validate();
-            
+            txtUsername.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+
         }
     }
 
@@ -129,7 +129,7 @@ public partial class _Default : System.Web.UI.Page
 
         if (RadioButtonList1.SelectedValue == "0")
         {
-            
+
 
             one.age = Convert.ToInt32(txtAge.Text);
             one.gender = Convert.ToInt32(ddGender.SelectedValue);
@@ -174,7 +174,7 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister2.Visible = true;
         pnlRegister2FormControl.Enabled = true;
         pnlRegister2FormControl.Visible = true;
-        if(RadioButtonList1.SelectedValue == "0")
+        if (RadioButtonList1.SelectedValue == "0")
         {
             pnlCalculateCal.Enabled = true;
             pnlCalculateCal.Visible = true;
@@ -236,9 +236,8 @@ public partial class _Default : System.Web.UI.Page
         txtPrProResults.Text = macros[0].ToString();
         txtPrCarbResults.Text = macros[1].ToString();
         txtPrFatResults.Text = macros[2].ToString();
- 
-    }
-} 
-        
 
-      
+    }
+}
+
+
