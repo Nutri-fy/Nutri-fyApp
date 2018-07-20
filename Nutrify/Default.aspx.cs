@@ -238,6 +238,28 @@ public partial class _Default : System.Web.UI.Page
         txtPrFatResults.Text = macros[2].ToString();
 
     }
+
+    protected void txtRegUsername_TextChanged(object sender, EventArgs e)
+    {
+        bool result = reg.validateUsername(txtRegUsername.Text);
+        if (result)
+        {
+            pnlMain.Enabled = false;
+            pnlMain.Visible = false;
+            pnlRegister.Enabled = true;
+            pnlRegister.Visible = true;
+            cmpRegUsername.ValueToCompare = "";
+            cmpRegUsername.Validate();
+            txtRegUsername.Text = string.Empty;
+        }
+        else {
+            pnlMain.Enabled = false;
+            pnlMain.Visible = false;
+            pnlRegister.Enabled = true;
+            pnlRegister.Visible = true;
+        }
+        
+    }
 }
 
 
