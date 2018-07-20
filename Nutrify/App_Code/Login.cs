@@ -12,18 +12,20 @@ public class Login
     private SqlConnection conn = new SqlConnection();
     private string conString = "Server=den1.mssql2.gear.host; Database=class2018; User=class2018; Password=c#class";
     private SqlCommand cmd;
+    public int userID;
     
     public bool isLogin(string uname, string pass)
     {
 
         conn.ConnectionString = conString;
         cmd = conn.CreateCommand();
+        conn.Open();
 
         try
         {
             string query = "SELECT COUNT (*) from UserInfo where userName like '"+uname+"' AND password like '"+pass+"';";
             cmd.CommandText = query;
-            conn.Open();
+
             string result = cmd.ExecuteScalar().ToString();
             if (result=="1")
             {
@@ -31,7 +33,6 @@ public class Login
             }
             else
             {
-      
                 return false;
             }
         }catch (Exception e)
@@ -45,11 +46,9 @@ public class Login
         }
     }
 
-
-
-
-
-
-
+    public int getUserId()
+    {
+        return userID;
+    }
 
 }

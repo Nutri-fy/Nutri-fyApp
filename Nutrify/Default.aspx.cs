@@ -11,6 +11,7 @@ public partial class _Default : System.Web.UI.Page
     User one = new User();
     CalorieCalculator cc = new CalorieCalculator();
     Register reg = new Register();
+    Login userLog = new Login();
     protected void Page_Load(object sender, EventArgs e)
     {
         pnlMain.Enabled = true;
@@ -32,8 +33,6 @@ public partial class _Default : System.Web.UI.Page
         pnlCalculateValues.Visible = false;
         pnlCalculateResults.Enabled = false;
         pnlCalculateResults.Visible = false;
-
-   
 
     }
 
@@ -92,24 +91,31 @@ public partial class _Default : System.Web.UI.Page
         pnlMain.Visible = false;
         pnlLogin.Enabled = true;
         pnlLogin.Visible = true;
-        txtUsername.BorderColor = System.Drawing.Color.Red;
-        txtUsername.BorderWidth = 2;
     }
 
 
 
     protected void btnLoginSubmit_Click(object sender, EventArgs e)
     {
-        Login userLog = new Login();
+
         bool loginSuccess = userLog.isLogin(txtUsername.Text, txtPassword.Text);
         if (loginSuccess)
         {
-           Response.Redirect("Test.aspx");
+            this.Session.Add("sUserId", userLog.getUserId());
+            Response.Redirect("Test.aspx");
         }
         else
         {
-            
-           refreshLogin();
+            refreshLogin();
+            txtHiddenUsername.Text = "";
+            txtHiddenPassword.Text = "";
+            cmpUserName.ValueToCompare = txtHiddenUsername.Text;
+            cmpUserName.Validate();
+            cmpUserName.ValueToCompare = txtHiddenPassword.Text;
+            cmpPassword.Validate();
+            txtUsername.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+
         }
     }
 
@@ -124,7 +130,7 @@ public partial class _Default : System.Web.UI.Page
 
         if (RadioButtonList1.SelectedValue == "0")
         {
-            
+
 
             one.age = Convert.ToInt32(txtAge.Text);
             one.gender = Convert.ToInt32(ddGender.SelectedValue);
@@ -169,7 +175,7 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister2.Visible = true;
         pnlRegister2FormControl.Enabled = true;
         pnlRegister2FormControl.Visible = true;
-        
+
         if (RadioButtonList1.SelectedValue == "0")
         {
             pnlCalculateCal.Enabled = true;
@@ -233,9 +239,30 @@ public partial class _Default : System.Web.UI.Page
         txtPrProResults.Text = macros[0].ToString();
         txtPrCarbResults.Text = macros[1].ToString();
         txtPrFatResults.Text = macros[2].ToString();
- 
-    }
-} 
-        
 
-      
+    }
+
+    protected void txtRegUsername_TextChanged(object sender, EventArgs e)
+    {
+        bool result = reg.validateUsername(txtRegUsername.Text);
+        if (result)
+        {
+            pnlMain.Enabled = false;
+            pnlMain.Visible = false;
+            pnlRegister.Enabled = true;
+            pnlRegister.Visible = true;
+            cmpRegUsername.ValueToCompare = "";
+            cmpRegUsername.Validate();
+            txtRegUsername.Text = string.Empty;
+        }
+        else {
+            pnlMain.Enabled = false;
+            pnlMain.Visible = false;
+            pnlRegister.Enabled = true;
+            pnlRegister.Visible = true;
+        }
+        
+    }
+}
+
+
