@@ -214,7 +214,7 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister2.Visible = true;
         pnlRegister2FormControl.Enabled = true;
         pnlRegister2FormControl.Visible = true;
-        pnlRegister2.Attributes.Add("style", "height:700px");
+        pnlRegister2.CssClass = "pnlRegister2Macros";
         pnlCalculateCal.Enabled = true;
         pnlCalculateCal.Visible = true;
         pnlEnterCal.Enabled = false;
@@ -262,6 +262,12 @@ public partial class _Default : System.Web.UI.Page
             pnlRegister.Visible = true;
         }
         
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        pnlRegister2.CssClass = "pnlRegister2";
+        Response.Redirect("default.aspx");
     }
 }
 
