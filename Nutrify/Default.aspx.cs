@@ -184,7 +184,7 @@ public partial class _Default : System.Web.UI.Page
             pnlEnterCal.Visible = false;
             pnlRegister2FormControl.Enabled = false;
             pnlRegister2FormControl.Visible = false;
-            register2Form.Attributes.Add("style", "height:500px");
+            pnlRegister2.CssClass = "pnlRegister2Calculate";
             pnlCalculateValues.Enabled = true;
             pnlCalculateValues.Visible = true;
         }
@@ -196,7 +196,7 @@ public partial class _Default : System.Web.UI.Page
             pnlEnterCal.Visible = true;
             pnlRegister2FormControl.Enabled = true;
             pnlRegister2FormControl.Visible = true;
-            register2Form.Attributes.Add("style", "height:600px");
+            pnlRegister2.CssClass = "pnlRegister2Input";
             pnlCalculateValues.Enabled = false;
             pnlCalculateValues.Visible = false;
             pnlCalculateResults.Enabled = false;
@@ -214,7 +214,7 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister2.Visible = true;
         pnlRegister2FormControl.Enabled = true;
         pnlRegister2FormControl.Visible = true;
-        register2Form.Attributes.Add("style", "height:700px");
+        pnlRegister2.Attributes.Add("style", "height:700px");
         pnlCalculateCal.Enabled = true;
         pnlCalculateCal.Visible = true;
         pnlEnterCal.Enabled = false;
