@@ -25,8 +25,7 @@
                     <asp:Button ID="btnRegister" class="btn btn-primary btn-lg btn-block" runat="server" Text="Register" OnClick="btnRegister_Click" />
                 </div>
             </asp:Panel>
-            <asp:Panel ID="pnlLogin" runat="server" BorderColor="White" Enabled="False" Visible="False">
-                <div id="loginForm" class="form-group">
+            <asp:Panel ID="pnlLogin" class="form-group" runat="server" BorderColor="White" Enabled="False" Visible="False">
                     <h1 id="loginHeading">Login</h1>
                     <div id="loginControls" aria-autocomplete="none">
                         <label for="txtUsername">Username</label>
@@ -42,12 +41,10 @@
                         <asp:Button ID="btnLoginBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnLoginBack_Click1" CausesValidation="False" />
                         <asp:Button ID="btnLoginSubmit" class="btn btn-primary" runat="server" Text="Login" OnClick="btnLoginSubmit_Click" />
                     </div>
-                </div>
                         <asp:TextBox ID="txtHiddenUsername" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
                         <asp:TextBox ID="txtHiddenPassword" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
             </asp:Panel>
-            <asp:Panel ID="pnlRegister" runat="server" BorderColor="White">
-                <div id="registerForm" class="form-group">
+            <asp:Panel ID="pnlRegister" class="form-group" runat="server" BorderColor="White">
                     <h1 id="registerHeading">Register</h1>
                     <div id="registerControls" class="container">
                         <div class="row">
@@ -68,37 +65,35 @@
                             <div id="col3" class="col">
                                 <label for="txtFirstname">First Name</label>
                                 <asp:TextBox ID="txtFirstname" class="form-control" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="ReqFName" runat="server" ControlToValidate="txtFirstname" EnableTheming="True" ErrorMessage="Please enter your First Name" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="ReqFName" runat="server" ControlToValidate="txtFirstname" Display="Dynamic" EnableTheming="True" ErrorMessage="Please enter your First Name" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                             <div id="col4" class="col">
                                 <label for="txtLastname">Last Name</label>
                                 <asp:TextBox ID="txtLastname" class="form-control" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="ReqLName" runat="server" ControlToValidate="txtLastname" ErrorMessage="Please enter your Last Name" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="ReqLName" runat="server" ControlToValidate="txtLastname" Display="Dynamic" ErrorMessage="Please enter your Last Name" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="row">
                             <div id="col5" class="col">
                                 <label for="txtRegPassword">Password</label>
                                 <asp:TextBox ID="txtRegPassword" class="form-control" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="ReqRegPass" runat="server" ControlToValidate="txtRegPassword" ErrorMessage="Please enter a Password" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="ReqRegPass" TextMode="Password" runat="server" ControlToValidate="txtRegPassword" Display="Dynamic" ErrorMessage="Please enter a Password" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                             <div id="col6" class="col">
                                 <label for="txtRePassword">Re-enter Password</label>
                                 <asp:TextBox ID="txtRePassword" class="form-control" runat="server"></asp:TextBox>
-                                <asp:CompareValidator ID="compPass" runat="server" ControlToCompare="txtRegPassword" ControlToValidate="txtRePassword" ErrorMessage="Passwords must match!" Font-Bold="True" Font-Italic="True" ForeColor="#3333FF"></asp:CompareValidator>
+                                <asp:CompareValidator ID="compPass" TextMode="Password" runat="server" ControlToCompare="txtRegPassword" Display="Dynamic"  ControlToValidate="txtRePassword" ErrorMessage="Passwords must match!" Font-Bold="True" Font-Italic="True" ForeColor="#3333FF"></asp:CompareValidator>
                             </div>
                         </div>
                         <br />
                         <asp:Button ID="btnRegisterBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnRegisterBack_Click" CausesValidation="False" />
 
-                        <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="True" />
+                        <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="False" />
 
                     </div>
-                </div>
                 <asp:TextBox ID="txtHiddenRegUsername" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
             </asp:Panel>
-            <asp:Panel ID="pnlRegister2" runat="server" BorderColor="White">
-                <div id="register2Form" class="form-group" runat="server">
+            <asp:Panel ID="pnlRegister2" class="form-group" CssClass="pnlRegister2" runat="server" BorderColor="White">
                     <h1 id="register2Heading">Personal Info</h1>
                     <div id="register2Controls" class="container">
                         <div class="row">
@@ -267,8 +262,6 @@
                             <asp:Button ID="btnRegisterSubmit" class="btn btn-primary" runat="server" Text="Register" OnClick="btnRegisterSubmit_Click" />
                         </asp:Panel>
                     </div>
-
-                </div>
             </asp:Panel>
 
         </div>
