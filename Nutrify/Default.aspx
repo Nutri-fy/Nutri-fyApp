@@ -88,7 +88,7 @@
                         <br />
                         <asp:Button ID="btnRegisterBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnRegisterBack_Click" CausesValidation="False" />
 
-                        <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="False" />
+                        <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="True" />
 
                     </div>
                 <asp:TextBox ID="txtHiddenRegUsername" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
@@ -241,24 +241,24 @@
                                     <label for="txtPrPro">Percent Proteins (%)</label>
                                     <asp:TextBox ID="txtPrPro" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPro" runat="server" ControlToValidate="txtPrPro"
-                                     ErrorMessage="Please enter protein percentage" ForeColor="Red"></asp:RequiredFieldValidator>
+                                     ErrorMessage="Please enter a value" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                                 <div id="col19" class="col">
                                     <label for="txtPrCarb">Percent Carbohydrates (%)</label>
                                     <asp:TextBox ID="txtPrCarb" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPrCarb" runat="server" ControlToValidate="txtPrCarb"
-                                     ErrorMessage="Please enter your carbohydrates percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                     ErrorMessage="Please enter a value" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                                 <div id="col20" class="col">
                                     <label for="txtPrFat">Percent Fats (%)</label>
                                     <asp:TextBox ID="txtPrFat" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPrFat" runat="server" ControlToValidate="txtPrFat"
-                                     ErrorMessage="Please enter your fat percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                     ErrorMessage="Please enter a value" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </asp:Panel>
                         <asp:Panel ID="pnlRegister2FormControl" runat="server">
-                            <asp:Button ID="btnCancel" class="btn btn-warning" runat="server" Text="Cancel" CausesValidation="False" />
+                            <asp:Button ID="btnCancel" class="btn btn-warning" runat="server" Text="Cancel" CausesValidation="False" OnClick="btnCancel_Click" />
                             <asp:Button ID="btnRegisterSubmit" class="btn btn-primary" runat="server" Text="Register" OnClick="btnRegisterSubmit_Click" />
                         </asp:Panel>
                     </div>
