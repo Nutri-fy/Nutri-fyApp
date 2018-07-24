@@ -223,6 +223,7 @@
                                     <asp:TextBox ID="txtEnterCalories" class="form-control" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="ReqCal" runat="server" ControlToValidate="txtEnterCalories"
                                      ErrorMessage="Please enter your calories" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                     <asp:RegularExpressionValidator ID="RegExpCal" runat="server" ControlToValidate="txtEnterCalories" Display="Dynamic" ErrorMessage="Please enter a valid calories" ForeColor="Red" ValidationExpression="^[1-9]\d*$"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
                             <div class="row">
@@ -238,6 +239,7 @@
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="ReqddMeals2" runat="server" ControlToValidate="ddMeals2"
                                      ErrorMessage="Number of meals required" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
+
                                 </div>
                             </div>
                             <div class="row">
@@ -246,18 +248,26 @@
                                     <asp:TextBox ID="txtPrPro" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPro" runat="server" ControlToValidate="txtPrPro"
                                      ErrorMessage="Please enter protein percentage" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegExprProtien" runat="server" ControlToValidate="txtPrPro" Display="Dynamic" ErrorMessage="Please enter a valid protein percentage" 
+                                        ForeColor="Red" ValidationExpression="^[1-9]\d*$"></asp:RegularExpressionValidator>
+
                                 </div>
                                 <div id="col19" class="col">
                                     <label for="txtPrCarb">Percent Carbohydrates (%)</label>
                                     <asp:TextBox ID="txtPrCarb" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPrCarb" runat="server" ControlToValidate="txtPrCarb"
                                      ErrorMessage="Please enter your carbohydrates percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegExpCarb" runat="server" ControlToValidate="txtPrCarb" Display="Dynamic" ErrorMessage="Please enter a valid carb percentage" 
+                                        ForeColor="Red" ValidationExpression="^[1-9]\d*$"></asp:RegularExpressionValidator>
+
                                 </div>
                                 <div id="col20" class="col">
                                     <label for="txtPrFat">Percent Fats (%)</label>
                                     <asp:TextBox ID="txtPrFat" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPrFat" runat="server" ControlToValidate="txtPrFat"
                                      ErrorMessage="Please enter your fat percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegExpFat" runat="server" ControlToValidate="txtPrFat" Display="Dynamic" ErrorMessage="Please enter a valid fat percentage" 
+                                        ForeColor="Red" ValidationExpression="^[1-9]\d*$"></asp:RegularExpressionValidator>
                                     
                                 </div>
                             </div>
