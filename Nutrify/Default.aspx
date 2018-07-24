@@ -66,11 +66,13 @@
                                 <label for="txtFirstname">First Name</label>
                                 <asp:TextBox ID="txtFirstname" class="form-control" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="ReqFName" runat="server" ControlToValidate="txtFirstname" Display="Dynamic" EnableTheming="True" ErrorMessage="Please enter your First Name" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                               <asp:RegularExpressionValidator ID="RegExpFname" runat="server" ControlToValidate="txtFirstname" Display="Dynamic" ErrorMessage="Please enter a valid first name" ForeColor="Red" ValidationExpression="/^[a-z ,.'-]+$/i"></asp:RegularExpressionValidator>
                             </div>
                             <div id="col4" class="col">
                                 <label for="txtLastname">Last Name</label>
                                 <asp:TextBox ID="txtLastname" class="form-control" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="ReqLName" runat="server" ControlToValidate="txtLastname" Display="Dynamic" ErrorMessage="Please enter your Last Name" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegExpLname" runat="server" ControlToValidate="txtLastname" Display="Dynamic" ErrorMessage="Please enter a valid last name" ForeColor="Red" ValidationExpression="/^[a-z ,.'-]+$/i"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                         <div class="row">
@@ -107,11 +109,13 @@
                                 <label for="txtHeight">Height (cm)</label>
                                 <asp:TextBox ID="txtHeight" class="form-control" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="ReqHeight" runat="server" ControlToValidate="txtHeight" ErrorMessage="Please enter your height" ForeColor="Red" BorderStyle="NotSet" Display="Dynamic"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegExpHeight" runat="server" ControlToValidate="txtHeight" Display="Dynamic" ErrorMessage="Please enter a valid height" ForeColor="Red" ValidationExpression="^[1-9]\d*$"></asp:RegularExpressionValidator>
                             </div>
                             <div id="col12" class="col">
                                 <label for="txtWeight">Weight (kg)</label>
                                 <asp:TextBox ID="txtWeight" class="form-control" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="ReqWeight" runat="server" ControlToValidate="txtWeight" ErrorMessage="Please enter your weight" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                 <asp:RegularExpressionValidator ID="ReguExpWeight" runat="server" ControlToValidate="txtWeight" Display="Dynamic" ErrorMessage="Please enter a valid weight" ForeColor="Red" ValidationExpression="^[1-9]\d*$"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                         <div class="row">
@@ -254,6 +258,7 @@
                                     <asp:TextBox ID="txtPrFat" class="form-control" runat="server"></asp:TextBox>
                                      <asp:RequiredFieldValidator ID="ReqPrFat" runat="server" ControlToValidate="txtPrFat"
                                      ErrorMessage="Please enter your fat percentage" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    
                                 </div>
                             </div>
                         </asp:Panel>
