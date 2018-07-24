@@ -50,7 +50,7 @@
                         <div class="row">
                             <div id="col1" class="col">
                                 <label for="txtRegUsername">Username</label>
-                                <asp:TextBox ID="txtRegUsername" class="form-control" runat="server" AutoPostBack="True" OnTextChanged="txtRegUsername_TextChanged"></asp:TextBox>
+                                <asp:TextBox ID="txtRegUsername" class="form-control" runat="server"> </asp:TextBox>
                                 <asp:RequiredFieldValidator ID="ReqRegName" runat="server" ControlToValidate="txtRegUsername" ErrorMessage="Please enter Username" Font-Bold="True" Font-Italic="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:CompareValidator ID="cmpRegUsername" runat="server" ErrorMessage="Username already Exists!" ControlToCompare="txtHiddenRegUsername" ControlToValidate="txtRegUsername" Display="Dynamic" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:CompareValidator>
                             </div>
