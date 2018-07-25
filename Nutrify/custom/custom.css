@@ -6,12 +6,14 @@
     background-image: url(../img/berries.jpg);
     width: 100vw;
     height: 100vh;
-    overflow:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .jumbotron{
     padding: 1%;
     border-radius:0;
+    display: block;
 }
 
 #form1{
@@ -36,10 +38,9 @@ label {
 }
 
 #welcomeHeading {
-    position: absolute;
-    left: 50%;
-    margin-left: -20%;
+    position: relative;
     color: white;
+    text-align: center;
 }
 
 
@@ -73,10 +74,9 @@ label {
 }
 
 #loginHeading {
-    position: absolute;
-    left: 50%;
-    margin-left: -13%;
+    position: relative;
     color: white;
+    text-align: center;
 }
 
 #loginControls {
@@ -106,37 +106,40 @@ label {
 /*------------------------------------------Register Panel CSS Start------------------------------------*/
 #pnlRegister {
     position: relative;
-    margin-top: 17.25%;
+    margin-top: 26.5%;
     left: 50%;
     width: 900px;
-    height: 420px;
+    height: 700px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     background: rgba(0,0,0,0.5);
 }
 
 #registerHeading {
-    position: absolute;
-    left: 50%;
-    margin-left: -10%;
+    position: relative;
     color: white;
+    text-align: center;
 }
 
 #btnRegisterBack {
     position: absolute;
     display: block;
-    left: 0;
+    left: 2%;
     width: 100px;
 }
 
 #btnContinue {
     position: absolute;
     display: block;
-    right: 0;
+    right: 2%;
     width: 100px;
 }
-/*------------------------------------------Register Panel CSS End------------------------------------*/
 
+#btnValidateUsernameReg{
+    position:relative;
+    left: 78.5%;
+}
+/*------------------------------------------Register Panel CSS End------------------------------------*/
 /*------------------------------------------Register 2 Panel CSS Start------------------------------------*/
 .pnlRegister2 {
     position: relative;
@@ -147,6 +150,12 @@ label {
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     background: rgba(0,0,0,0.5);
+}
+
+#register2Heading {
+    position: relative;
+    color: white;
+    text-align: center;
 }
 
 .pnlRegister2Calculate {
@@ -162,7 +171,7 @@ label {
 
 .pnlRegister2Input {
     position: relative;
-    margin-top: 23%;
+    margin-top: 23.25%;
     left: 50%;
     width: 900px;
     height: 600px;
@@ -171,28 +180,28 @@ label {
     background: rgba(0,0,0,0.5);
 }
 
-#register2Heading {
-    position: absolute;
+.pnlRegister2Macros {
+    position: relative;
+    margin-top: 26.5%;
     left: 50%;
-    margin-left: -13%;
-    color: white;
+    width: 900px;
+    height: 700px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.5);
 }
 
 #registerControls {
     position: absolute;
     width: 80%;
     left: 10%;
-    top: 15%;
 }
 
 #register2Controls {
     position: absolute;
     width: 80%;
     left: 10%;
-    top: 15%;
 }
-
-
 
 #btnRegisterSubmit {
     position: absolute;
@@ -202,8 +211,6 @@ label {
     width: 100px;
 }
 
-
-
 #btnCancel {
     position: absolute;
     display: block;
@@ -212,13 +219,6 @@ label {
     width: 100px;
 }
 
-#col1, #col3, #col5{
-    padding-left:0;
-}
-
-#col2, #col4, #col6{
-    padding-right:0;
-}
 
 #RadioButtonList1 {
     position: relative;
@@ -240,7 +240,7 @@ label {
 
 #pnlRegister2FormControl {
     position: relative;
-    margin-top: 15%;
+    margin-top: 7%;
 }
 
 #btnCalculateCaloriesMacros {

@@ -34,6 +34,21 @@ public partial class _Default : System.Web.UI.Page
         pnlCalculateResults.Enabled = false;
         pnlCalculateResults.Visible = false;
 
+        Application_BeginRequest();
+
+    }
+
+    protected void Application_BeginRequest()
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+        Response.Cache.SetNoStore();
+    }
+    protected void Application_BeginRequest1()
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -58,6 +73,8 @@ public partial class _Default : System.Web.UI.Page
         pnlLogin.Visible = false;
         pnlMain.Enabled = true;
         pnlMain.Visible = true;
+        txtPassword.Text = "";
+        txtUsername.Text = "";
     }
 
     protected void btnRegisterBack_Click(object sender, EventArgs e)
@@ -66,10 +83,12 @@ public partial class _Default : System.Web.UI.Page
         pnlMain.Visible = true;
         pnlRegister.Enabled = false;
         pnlRegister.Visible = false;
+        Application_BeginRequest1();
     }
 
     protected void btnContinue_Click(object sender, EventArgs e)
     {
+
         this.Session.Add("sUsername", txtRegUsername.Text);
         this.Session.Add("sFirstName", txtFirstname.Text);
         this.Session.Add("sLastName", txtLastname.Text);
@@ -82,7 +101,7 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister.Visible = false;
         pnlRegister2.Enabled = true;
         pnlRegister2.Visible = true;
-       
+
     }
 
     protected void refreshLogin()
@@ -117,6 +136,7 @@ public partial class _Default : System.Web.UI.Page
             txtPassword.Text = string.Empty;
 
         }
+        Application_BeginRequest1();
     }
 
     protected void btnRegisterSubmit_Click(object sender, EventArgs e)
@@ -162,8 +182,7 @@ public partial class _Default : System.Web.UI.Page
             one.prFats = Convert.ToDouble(txtPrFat.Text);
             reg.sendRegister(one);
         }
-
-
+        Application_BeginRequest1();
 
     }
 
@@ -204,8 +223,6 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-
-
     protected void btnCalculateCaloriesMacros_Click(object sender, EventArgs e)
     {
         pnlMain.Enabled = false;
@@ -214,7 +231,7 @@ public partial class _Default : System.Web.UI.Page
         pnlRegister2.Visible = true;
         pnlRegister2FormControl.Enabled = true;
         pnlRegister2FormControl.Visible = true;
-        pnlRegister2.Attributes.Add("style", "height:700px");
+        pnlRegister2.CssClass = "pnlRegister2Macros";
         pnlCalculateCal.Enabled = true;
         pnlCalculateCal.Visible = true;
         pnlEnterCal.Enabled = false;
@@ -242,26 +259,33 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    protected void txtRegUsername_TextChanged(object sender, EventArgs e)
+    protected void btnCancel_Click(object sender, EventArgs e)
     {
+        pnlRegister2.CssClass = "pnlRegister2";
+        Response.Redirect("default.aspx");
+        Application_BeginRequest1();
+    }
+
+    protected void btnValidateUsernameReg_Click(object sender, EventArgs e)
+    {
+        pnlMain.Enabled = false; ;
+        pnlMain.Visible = false;
+        pnlRegister.Enabled = true;
+        pnlRegister.Visible = true;
+
         bool result = reg.validateUsername(txtRegUsername.Text);
-        if (result)
+        if (result || txtRegUsername.Text.Length == 0)
         {
-            pnlMain.Enabled = false;
-            pnlMain.Visible = false;
-            pnlRegister.Enabled = true;
-            pnlRegister.Visible = true;
-            cmpRegUsername.ValueToCompare = "";
-            cmpRegUsername.Validate();
+            imgUsername.Attributes["src"] = ResolveUrl("img/cancel.png");
             txtRegUsername.Text = string.Empty;
+           
         }
-        else {
-            pnlMain.Enabled = false;
-            pnlMain.Visible = false;
-            pnlRegister.Enabled = true;
-            pnlRegister.Visible = true;
+        else
+        {
+            imgUsername.Attributes["src"] = ResolveUrl("img/checked.png");
+            btnContinue.Enabled = true;
         }
-        
+
     }
 }
 
