@@ -6,15 +6,17 @@
     background-image: url(../img/berries.jpg);
     width: 100vw;
     height: 100vh;
-    overflow:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.jumbotron{
+.jumbotron {
     padding: 1%;
-    border-radius:0;
+    border-radius: 0;
+    display: block;
 }
 
-#form1{
+#form1 {
     position: relative;
     width: 100vw;
 }
@@ -104,10 +106,10 @@ label {
 /*------------------------------------------Register Panel CSS Start------------------------------------*/
 #pnlRegister {
     position: relative;
-    margin-top: 17.25%;
+    margin-top: 26.5%;
     left: 50%;
     width: 900px;
-    height: 420px;
+    height: 700px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     background: rgba(0,0,0,0.5);
@@ -122,18 +124,22 @@ label {
 #btnRegisterBack {
     position: absolute;
     display: block;
-    left: 0;
+    left: 2%;
     width: 100px;
 }
 
 #btnContinue {
     position: absolute;
     display: block;
-    right: 0;
+    right: 2%;
     width: 100px;
 }
-/*------------------------------------------Register Panel CSS End------------------------------------*/
 
+#btnValidateUsernameReg {
+    position: relative;
+    left: 78.5%;
+}
+/*------------------------------------------Register Panel CSS End------------------------------------*/
 /*------------------------------------------Register 2 Panel CSS Start------------------------------------*/
 .pnlRegister2 {
     position: relative;
@@ -213,13 +219,6 @@ label {
     width: 100px;
 }
 
-#col1, #col3, #col5{
-    padding-left:0;
-}
-
-#col2, #col4, #col6{
-    padding-right:0;
-}
 
 #RadioButtonList1 {
     position: relative;
