@@ -23,14 +23,14 @@ public class Login
 
         try
         {
-            string query = "SELECT COUNT (*) from UserInfo where userName like '@Username' AND password like '@Password';";
+            string query = "SELECT COUNT(*) from UserInfo where userName like @Username AND password like @Password;";
 
-            SqlParameter userepar = new SqlParameter("@Username", uname);
-            SqlParameter passpar = new SqlParameter("@Password", pass);
+           // SqlParameter userepar = new SqlParameter();
+          //  SqlParameter passpar = new SqlParameter();
 
             cmd.CommandText = query;
-            cmd.Parameters.Add(userepar);
-            cmd.Parameters.Add(passpar);
+            cmd.Parameters.AddWithValue("@Username", uname);
+            cmd.Parameters.AddWithValue("@Password", pass);
 
             UserConnect.Open();
             

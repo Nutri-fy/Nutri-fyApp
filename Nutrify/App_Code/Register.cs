@@ -100,11 +100,10 @@ public class Register
         cmd = UserConnect.CreateCommand();
         try
         {
-            string query = "SELECT COUNT (*) from UserInfo where userName like '@Username';";
+            string query = "SELECT COUNT (*) from UserInfo where userName like @Username;";
 
-            SqlParameter userepar = new SqlParameter();
-            userepar.ParameterName = "@Username";
-            userepar.Value = uname;
+            SqlParameter userepar = new SqlParameter("@Username", uname);
+
 
             cmd.CommandText = query;
             cmd.Parameters.Add(userepar);
