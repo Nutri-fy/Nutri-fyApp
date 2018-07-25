@@ -50,50 +50,53 @@
                         <div class="row">
                             <div id="col1" class="col">
                                 <label for="txtRegUsername">Username</label>
-                                <asp:TextBox ID="txtRegUsername" class="form-control" runat="server" AutoPostBack="True" OnTextChanged="txtRegUsername_TextChanged"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="ReqRegName" runat="server" ControlToValidate="txtRegUsername" ErrorMessage="Please enter Username" Font-Bold="True" Font-Italic="True" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                                <asp:CompareValidator ID="cmpRegUsername" runat="server" ErrorMessage="Username already Exists!" ControlToCompare="txtHiddenRegUsername" ControlToValidate="txtRegUsername" Display="Dynamic" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:CompareValidator>
-                            </div>
-                            <div id="col2" class="col">
-                                <label for="txtEmail">Email</label>
-                                <asp:TextBox ID="txtEmail" class="form-control" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="ReqEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Please enter your Email" ForeColor="Red"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="regEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Not a valid Email!" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                            </div>
+                                <img id="imgUsername" runat="server" src="img/empty.png" />
+                            </span>
+                            <asp:TextBox ID="txtRegUsername" class="form-control" runat="server"> </asp:TextBox><asp:Button class="btn btn-primary" ID="btnValidateUsernameReg" runat="server" Text="Check Availability" OnClick="btnValidateUsernameReg_Click" CausesValidation="False" />
                         </div>
-                        <div class="row">
-                            <div id="col3" class="col">
-                                <label for="txtFirstname">First Name</label>
-                                <asp:TextBox ID="txtFirstname" class="form-control" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="ReqFName" runat="server" ControlToValidate="txtFirstname" Display="Dynamic" EnableTheming="True" ErrorMessage="Please enter your First Name" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                               <asp:RegularExpressionValidator ID="RegExpFname" runat="server" ControlToValidate="txtFirstname" Display="Dynamic" ErrorMessage="Please enter a valid first name" ForeColor="Red" ValidationExpression="/^[a-z ,.'-]+$/i"></asp:RegularExpressionValidator>
-                            </div>
-                            <div id="col4" class="col">
-                                <label for="txtLastname">Last Name</label>
-                                <asp:TextBox ID="txtLastname" class="form-control" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="ReqLName" runat="server" ControlToValidate="txtLastname" Display="Dynamic" ErrorMessage="Please enter your Last Name" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegExpLname" runat="server" ControlToValidate="txtLastname" Display="Dynamic" ErrorMessage="Please enter a valid last name" ForeColor="Red" ValidationExpression="/^[a-z ,.'-]+$/i"></asp:RegularExpressionValidator>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div id="col5" class="col">
-                                <label for="txtRegPassword">Password</label>
-                                <asp:TextBox ID="txtRegPassword" class="form-control" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="ReqRegPass" TextMode="Password" runat="server" ControlToValidate="txtRegPassword" Display="Dynamic" ErrorMessage="Please enter a Password" Font-Bold="True" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                            </div>
-                            <div id="col6" class="col">
-                                <label for="txtRePassword">Re-enter Password</label>
-                                <asp:TextBox ID="txtRePassword" class="form-control" runat="server"></asp:TextBox>
-                                <asp:CompareValidator ID="compPass" TextMode="Password" runat="server" ControlToCompare="txtRegPassword" Display="Dynamic"  ControlToValidate="txtRePassword" ErrorMessage="Passwords must match!" Font-Bold="True" Font-Italic="True" ForeColor="#3333FF"></asp:CompareValidator>
-                            </div>
-                        </div>
-                        <br />
-                        <asp:Button ID="btnRegisterBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnRegisterBack_Click" CausesValidation="False" />
-
-                        <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="False" />
-
                     </div>
-                <asp:TextBox ID="txtHiddenRegUsername" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
+                    <div class="row">
+                        <div id="col2" class="col">
+                            <label for="txtEmail">Email</label>
+                            <asp:TextBox ID="txtEmail" class="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="ReqEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Please enter your Email" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="regEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Not a valid Email!" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="col3" class="col">
+                            <label for="txtFirstname">First Name</label>
+                            <asp:TextBox ID="txtFirstname" class="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="ReqFName" runat="server" ControlToValidate="txtFirstname" Display="Dynamic" EnableTheming="True" ErrorMessage="Please enter your First Name" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="col4" class="col">
+                            <label for="txtLastname">Last Name</label>
+                            <asp:TextBox ID="txtLastname" class="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="ReqLName" runat="server" ControlToValidate="txtLastname" Display="Dynamic" ErrorMessage="Please enter your Last Name" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="col5" class="col">
+                            <label for="txtRegPassword">Password</label>
+                            <asp:TextBox ID="txtRegPassword" class="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="ReqRegPass" TextMode="Password" runat="server" ControlToValidate="txtRegPassword" Display="Dynamic" ErrorMessage="Please enter a Password" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="col6" class="col">
+                            <label for="txtRePassword">Re-enter Password</label>
+                            <asp:TextBox ID="txtRePassword" class="form-control" runat="server"></asp:TextBox>
+                            <asp:CompareValidator ID="compPass" TextMode="Password" runat="server" ControlToCompare="txtRegPassword" Display="Dynamic" ControlToValidate="txtRePassword" ErrorMessage="Passwords must match!" ForeColor="#3333FF"></asp:CompareValidator>
+                        </div>
+                    </div>
+                    <br />
+                    <asp:Button ID="btnRegisterBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnRegisterBack_Click" CausesValidation="False" />
+
+                    <asp:Button ID="btnContinue" class="btn btn-primary" runat="server" Text="Continue" OnClick="btnContinue_Click" CausesValidation="True" Enabled="False" />
+
+                </div>
             </asp:Panel>
             <asp:Panel ID="pnlRegister2" class="form-group" CssClass="pnlRegister2" runat="server" BorderColor="White">
                     <h1 id="register2Heading">Personal Info</h1>
