@@ -35,7 +35,7 @@ public class Login
             UserConnect.Open();
             
 
-            string result = cmd.ExecuteNonQuery().ToString();
+            string result = cmd.ExecuteScalar().ToString();
             if (result=="1")
             {
                 return true;
