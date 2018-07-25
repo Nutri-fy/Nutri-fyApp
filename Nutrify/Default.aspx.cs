@@ -88,17 +88,6 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnContinue_Click(object sender, EventArgs e)
     {
-        bool result = reg.validateUsername(txtRegUsername.Text);
-        if (result)
-        {
-
-            txtRegUsername.Text = string.Empty;
-        }
-        else
-        {
-            cmpRegUsername.ValueToCompare = txtRegUsername.Text;
-            cmpRegUsername.Validate();
-        }
 
         this.Session.Add("sUsername", txtRegUsername.Text);
         this.Session.Add("sFirstName", txtFirstname.Text);
@@ -234,8 +223,6 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-
-
     protected void btnCalculateCaloriesMacros_Click(object sender, EventArgs e)
     {
         pnlMain.Enabled = false;
@@ -272,14 +259,33 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-
-
-
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         pnlRegister2.CssClass = "pnlRegister2";
         Response.Redirect("default.aspx");
         Application_BeginRequest1();
+    }
+
+    protected void btnValidateUsernameReg_Click(object sender, EventArgs e)
+    {
+        pnlMain.Enabled = false; ;
+        pnlMain.Visible = false;
+        pnlRegister.Enabled = true;
+        pnlRegister.Visible = true;
+
+        bool result = reg.validateUsername(txtRegUsername.Text);
+        if (result || txtRegUsername.Text.Length == 0)
+        {
+            imgUsername.Attributes["src"] = ResolveUrl("img/cancel.png");
+            txtRegUsername.Text = string.Empty;
+           
+        }
+        else
+        {
+            imgUsername.Attributes["src"] = ResolveUrl("img/checked.png");
+            btnContinue.Enabled = true;
+        }
+
     }
 }
 
