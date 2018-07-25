@@ -1,0 +1,18 @@
+﻿body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    background-image: url(../img/spices.jpg);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.jumbotron {
+    padding: 1%;
+    border-radius: 0;
+    display: block;
+    padding-bottom: 0;
+}

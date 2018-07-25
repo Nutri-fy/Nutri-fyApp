@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Nutrify</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="custom/custom.css" rel="stylesheet" />
 </head>
 <body>
     <div id="loginBanner" class="jumbotron">
         <h1 class="display-4">Nutri-fy</h1>
-        <p class="lead">Nutrition planning made simple again</p>
+        <p class="lead">Nutrition planning made simple</p>
     </div>
     <form id="form1" runat="server">
         <div>
