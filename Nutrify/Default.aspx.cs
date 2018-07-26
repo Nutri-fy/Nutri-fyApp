@@ -158,7 +158,6 @@ public partial class _Default : System.Web.UI.Page
             one.weight = Convert.ToDouble(txtWeight.Text);
             one.activity = Convert.ToDouble(ddActivity.SelectedValue);
             one.calories = Convert.ToDouble(txtCaloriesResults.Text);
-            one.bFat = 0;
             one.numOfMeals = Convert.ToInt32(ddMeals.SelectedValue);
             one.goal = Convert.ToInt32(ddGoal.SelectedValue);
             one.prPro = Convert.ToDouble(txtPrProResults.Text);
@@ -174,7 +173,6 @@ public partial class _Default : System.Web.UI.Page
             one.weight = Convert.ToDouble(txtWeight.Text);
             one.activity = 0;
             one.calories = Convert.ToDouble(txtEnterCalories.Text);
-            one.bFat = 0;
             one.numOfMeals = Convert.ToInt32(ddMeals2.SelectedValue);
             one.goal = 0;
             one.prPro = Convert.ToDouble(txtPrPro.Text);

@@ -25,7 +25,7 @@ public class Register
         try
         {
             string query = "INSERT into UserInfo values" + "(@Username, @Password, @Firstname, @Lastname, @Email, @IsAdmin, @Age, @Gender, @Height, @Weight, @Activity, @Calories," +
-                "@BFat, @NumOfMeals, @Goal, @PrPro, @PrCarbs, @PrFats);";
+                "@NumOfMeals, @Goal, @PrPro, @PrCarbs, @PrFats);";
 
             SqlParameter userepar = new SqlParameter("@Username", user.userName);
 
@@ -51,8 +51,6 @@ public class Register
 
             SqlParameter calpar = new SqlParameter("@Calories", user.calories);
 
-            SqlParameter bfatpar = new SqlParameter("@BFat", user.bFat);
-
             SqlParameter numpar = new SqlParameter("@NumOfMeals", user.numOfMeals);
 
             SqlParameter goalpar = new SqlParameter("@Goal", user.goal);
@@ -76,7 +74,6 @@ public class Register
             cmd.Parameters.Add(weightpar);
             cmd.Parameters.Add(activitypar);
             cmd.Parameters.Add(calpar);
-            cmd.Parameters.Add(bfatpar);
             cmd.Parameters.Add(numpar);
             cmd.Parameters.Add(goalpar);
             cmd.Parameters.Add(propar);
