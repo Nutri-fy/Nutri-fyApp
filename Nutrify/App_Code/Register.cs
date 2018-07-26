@@ -9,46 +9,110 @@ using System.Web;
 /// </summary>
 public class Register
 {
-    SqlConnection conn = new SqlConnection();
-    string conString = "Server=den1.mssql2.gear.host; Database=class2018; User=class2018; Password=c#class";
+    SqlConnection UserConnect = new SqlConnection();
+    string connString = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["Nutri-fyConnectionString"].ConnectionString;
     SqlCommand cmd;
 
     public Register() { }
 
     public void sendRegister(User user)
     {
-       
 
-        conn.ConnectionString = conString;
-        cmd = conn.CreateCommand();
 
+        UserConnect.ConnectionString = connString;
+        cmd = UserConnect.CreateCommand();
 
         try
         {
-            string query = "Insert into UserInfo values ('" + user.userName + "','" + user.password + "','" + user.firstName + "','" + user.lastName + "', '" + user.email + "','" + user.isAdmin + "','" + user.age + "','" + user.gender + "', '" + user.height + "'" +
-                ", '" + user.weight + "','" + user.activity + "', '" +user.calories + "', " +
-                "'" + user.bFat + "', '" + user.numOfMeals + "', '" + user.goal + "', '" + user.prPro + "', '" + user.prCarbs + "', '" + user.prFats + "');";
+            string query = "INSERT into UserInfo values" + "(@Username, @Password, @Firstname, @Lastname, @Email, @IsAdmin, @Age, @Gender, @Height, @Weight, @Activity, @Calories," +
+                "@BFat, @NumOfMeals, @Goal, @PrPro, @PrCarbs, @PrFats);";
+
+            SqlParameter userepar = new SqlParameter("@Username", user.userName);
+
+            SqlParameter passpar = new SqlParameter("@Password", user.password);
+
+            SqlParameter firstpar = new SqlParameter("@Firstname", user.firstName);
+
+            SqlParameter lastpar = new SqlParameter("@Lastname", user.lastName);
+
+            SqlParameter emailpar = new SqlParameter("@Email", user.email);
+
+            SqlParameter adminpar = new SqlParameter("@IsAdmin", user.isAdmin);
+
+            SqlParameter agepar = new SqlParameter("@Age", user.age);
+
+            SqlParameter genderpar = new SqlParameter("@Gender", user.gender);
+
+            SqlParameter heightpar = new SqlParameter("@Height", user.height);
+
+            SqlParameter weightpar = new SqlParameter("@Weight", user.weight);
+
+            SqlParameter activitypar = new SqlParameter("@Activity", user.activity);
+
+            SqlParameter calpar = new SqlParameter("@Calories", user.calories);
+
+            SqlParameter bfatpar = new SqlParameter("@BFat", user.bFat);
+
+            SqlParameter numpar = new SqlParameter("@NumOfMeals", user.numOfMeals);
+
+            SqlParameter goalpar = new SqlParameter("@Goal", user.goal);
+
+            SqlParameter propar = new SqlParameter("@PrPro", user.prPro);
+
+            SqlParameter carbspar = new SqlParameter("@PrCarbs", user.prCarbs);
+
+            SqlParameter fatpar = new SqlParameter("@PrFats", user.prFats);
+
             cmd.CommandText = query;
-            conn.Open();
-            cmd.ExecuteScalar();
+            cmd.Parameters.Add(userepar);
+            cmd.Parameters.Add(passpar);
+            cmd.Parameters.Add(firstpar);
+            cmd.Parameters.Add(lastpar);
+            cmd.Parameters.Add(emailpar);
+            cmd.Parameters.Add(adminpar);
+            cmd.Parameters.Add(agepar);
+            cmd.Parameters.Add(genderpar);
+            cmd.Parameters.Add(heightpar);
+            cmd.Parameters.Add(weightpar);
+            cmd.Parameters.Add(activitypar);
+            cmd.Parameters.Add(calpar);
+            cmd.Parameters.Add(bfatpar);
+            cmd.Parameters.Add(numpar);
+            cmd.Parameters.Add(goalpar);
+            cmd.Parameters.Add(propar);
+            cmd.Parameters.Add(carbspar);
+            cmd.Parameters.Add(fatpar);
+
+
+            UserConnect.Open();
+            cmd.ExecuteNonQuery();
         }
         finally
         {
             cmd.Dispose();
-            conn.Close();
+            UserConnect.Close();
         }
     }
 
     public bool validateUsername(string uname)
     {
-        conn.ConnectionString = conString;
-        cmd = conn.CreateCommand();
-        conn.Open();
+        UserConnect.ConnectionString = connString;
+        cmd = UserConnect.CreateCommand();
         try
         {
-            string query = "SELECT COUNT (*) from UserInfo where userName like '" + uname + "';";
+            string query = "SELECT COUNT (*) from UserInfo where userName like @Username;";
+
+            SqlParameter userepar = new SqlParameter("@Username", uname);
+
+
             cmd.CommandText = query;
+            cmd.Parameters.Add(userepar);
+
+            UserConnect.Open();
+
+
             string result = cmd.ExecuteScalar().ToString();
+
             if (result == "1")
             {
                 return true;
@@ -61,7 +125,7 @@ public class Register
         finally
         {
             cmd.Dispose();
-            conn.Close();
+            UserConnect.Close();
         }
     }
 }

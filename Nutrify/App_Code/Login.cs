@@ -9,22 +9,31 @@ using System.Web;
 /// </summary>
 public class Login
 {
-    private SqlConnection conn = new SqlConnection();
-    private string conString = "Server=den1.mssql2.gear.host; Database=class2018; User=class2018; Password=c#class";
-    private SqlCommand cmd;
+    SqlConnection UserConnect = new SqlConnection();
+    string connString = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["Nutri-fyConnectionString"].ConnectionString;
+    SqlCommand cmd;
+
     public int userID;
     
     public bool isLogin(string uname, string pass)
     {
 
-        conn.ConnectionString = conString;
-        cmd = conn.CreateCommand();
-        conn.Open();
+        UserConnect.ConnectionString = connString;
+        cmd = UserConnect.CreateCommand();
 
         try
         {
-            string query = "SELECT COUNT (*) from UserInfo where userName like '"+uname+"' AND password like '"+pass+"';";
+            string query = "SELECT COUNT(*) from UserInfo where userName like @Username AND password like @Password;";
+
+           // SqlParameter userepar = new SqlParameter();
+          //  SqlParameter passpar = new SqlParameter();
+
             cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@Username", uname);
+            cmd.Parameters.AddWithValue("@Password", pass);
+
+            UserConnect.Open();
+            
 
             string result = cmd.ExecuteScalar().ToString();
             if (result=="1")
@@ -42,7 +51,7 @@ public class Login
         finally
         {
             cmd.Dispose();
-            conn.Close();
+            UserConnect.Close();
         }
     }
 
