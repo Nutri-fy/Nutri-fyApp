@@ -20,6 +20,7 @@ public class Login
 
         UserConnect.ConnectionString = connString;
         cmd = UserConnect.CreateCommand();
+        UserConnect.Open();
 
         try
         {
@@ -32,12 +33,12 @@ public class Login
             cmd.Parameters.AddWithValue("@Username", uname);
             cmd.Parameters.AddWithValue("@Password", pass);
 
-            UserConnect.Open();
-            
-
             string result = cmd.ExecuteScalar().ToString();
             if (result=="1")
             {
+                string queryID = "SELECT userID from UserInfo where userName like @Username AND password like @Password;";
+                cmd.CommandText = queryID;
+                userID = Convert.ToInt32(cmd.ExecuteScalar());
                 return true;
             }
             else
@@ -57,6 +58,7 @@ public class Login
 
     public int getUserId()
     {
+
         return userID;
     }
 
