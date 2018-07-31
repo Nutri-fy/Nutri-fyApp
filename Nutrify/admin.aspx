@@ -22,16 +22,7 @@
     
   
    
-    <section class="menu-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                   
-                </div>
-
-            </div>
-        </div>
-    </section>
+    
    
     <div class="content-wrapper">
         <div class="container">
@@ -53,7 +44,7 @@
             <div class="row">
                  <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="dashboard-div-wrapper bk-clr-one">
-                        <i  class="fa fa-venus dashboard-div-icon" ></i>
+                        <i  class="fa fa-bell-o dashboard-div-icon" ></i>
                         <div class="progress progress-striped active">
   
                            
@@ -189,12 +180,12 @@
             </div>
         </div>
     </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
+    
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                    &copy; Nutrify 
                 </div>
 
             </div>
