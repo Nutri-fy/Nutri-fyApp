@@ -19,9 +19,9 @@ public class BodyFatCalculator
     string date;
     public BodyFatCalculator(int uID)
     {
+        this.userID = uID;
         UserConnect.ConnectionString = connString;
         cmd = UserConnect.CreateCommand();
-        this.userID = uID;
 
         try
         {
