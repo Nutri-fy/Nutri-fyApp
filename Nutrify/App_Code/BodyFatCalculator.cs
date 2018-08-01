@@ -19,9 +19,9 @@ public class BodyFatCalculator
     string date;
     public BodyFatCalculator(int uID)
     {
+        this.userID = uID;
         UserConnect.ConnectionString = connString;
         cmd = UserConnect.CreateCommand();
-        this.userID = uID;
 
         try
         {
@@ -44,7 +44,7 @@ public class BodyFatCalculator
         }
         catch (Exception e)
         {
-           
+
         }
         finally
         {
@@ -55,7 +55,7 @@ public class BodyFatCalculator
 
     }
 
-    public double calculateBFat(double weight, double wrist, double waist, double hip, double forearm )
+    public double calculateBFat(double weight, double wrist, double waist, double hip, double forearm)
     {
         double bFat = 0;
         date = DateTime.Now.ToString("yyyy-MM-dd");
@@ -94,7 +94,7 @@ public class BodyFatCalculator
 
             UserConnect.Open();
             cmd.ExecuteNonQuery();
-            
+
         }
         catch (Exception e)
         {
