@@ -16,3 +16,33 @@
     display: block;
     padding-bottom: 0;
 }
+
+#loginBanner1 {
+    padding: 1%;
+    border-radius: 0;
+    display: block;
+}
+
+#navigation {
+    position: relative;
+    left: -1%;
+    margin-left: 0;
+    width: 100vw;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+
+#intro{
+    background-color:azure;
+    position:relative;
+    width: 50%;
+    height: 250px;
+   margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 7%;
+}
+
+#innerIntro{
+    padding: 3%;
+    text-align: center;
+}

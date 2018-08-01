@@ -3,15 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-</head>
-    <body>
          <br /><br /><br />
-    <div id ="pnlDays">
+    <div class ="pnlDays">
         <h1 id="dayTitle">Weekly Meals</h1>
   <main class="hoc container clear"> 
    
@@ -56,9 +52,9 @@
       
     </ul>
       <br />
-      
+      </main>
      </div>
-        <div id="pnlDays">
+        <div class="pnlDays">
             <h1>Your weekly progress</h1>
             <p>Training Program</p>
             <ul>
@@ -67,6 +63,5 @@
                 <li>Excercise 3</li>
             </ul>
         </div>
-      </body>
 </asp:Content>
 

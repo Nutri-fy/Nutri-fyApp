@@ -3,22 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+
+ 
    
+    <link href="css/bootstrap.css" rel="stylesheet" />
    
+    <link href="custom/font-awesome.css" rel="stylesheet" />
    
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-   
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-   
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="custom/style.css" rel="stylesheet" />
     
-</head>
-<body>
+
     
   
    
@@ -195,7 +189,5 @@
     <script src="assets/js/jquery-1.11.1.js"></script>
    
     <script src="assets/js/bootstrap.js"></script>
-</body>
-</html>
 </asp:Content>
 

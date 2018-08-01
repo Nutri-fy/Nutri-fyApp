@@ -121,7 +121,7 @@ public partial class _Default : System.Web.UI.Page
         if (loginSuccess)
         {
             this.Session.Add("sUserId", userLog.getUserId());
-            Response.Redirect("Test.aspx");
+            Response.Redirect("hubv2.aspx");
         }
         else
         {
@@ -131,7 +131,6 @@ public partial class _Default : System.Web.UI.Page
             cmpUserName.ValueToCompare = txtHiddenUsername.Text;
             cmpUserName.Validate();
             cmpUserName.ValueToCompare = txtHiddenPassword.Text;
-            cmpPassword.Validate();
             txtUsername.Text = string.Empty;
             txtPassword.Text = string.Empty;
 
@@ -180,6 +179,7 @@ public partial class _Default : System.Web.UI.Page
             one.prFats = Convert.ToDouble(txtPrFat.Text);
             reg.sendRegister(one);
         }
+        Response.Redirect("Welcome.aspx");
         Application_BeginRequest1();
 
     }
