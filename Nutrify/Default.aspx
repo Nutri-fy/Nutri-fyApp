@@ -31,12 +31,11 @@
                         <label for="txtUsername">Username</label>
                         <asp:TextBox ID="txtUsername" class="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ReqName" runat="server" ControlToValidate="txtUsername" ErrorMessage="Please enter Username" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:CompareValidator ID="cmpUserName" runat="server" ErrorMessage="Incorrect Username" ControlToCompare="txtHiddenUsername" ControlToValidate="txtUsername" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
+                        <asp:CompareValidator ID="cmpUserName" runat="server" ErrorMessage="Incorrect Username or Password" ControlToCompare="txtHiddenUsername" ControlToValidate="txtUsername" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                         <br />
                         <label for="txtPassword">Password</label>
                         <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ReqPass" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter password" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:CompareValidator ID="cmpPassword" runat="server" ErrorMessage="Incorrect Password" ControlToCompare="txtHiddenPassword" ControlToValidate="txtPassword" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                         <br />
                         <asp:Button ID="btnLoginBack" class="btn btn-warning" runat="server" Text="Back" OnClick="btnLoginBack_Click1" CausesValidation="False" />
                         <asp:Button ID="btnLoginSubmit" class="btn btn-primary" runat="server" Text="Login" OnClick="btnLoginSubmit_Click" />
@@ -80,15 +79,15 @@
                     <div class="row">
                         <div id="col5" class="col">
                             <label for="txtRegPassword">Password</label>
-                            <asp:TextBox ID="txtRegPassword" class="form-control" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="ReqRegPass" TextMode="Password" runat="server" ControlToValidate="txtRegPassword" Display="Dynamic" ErrorMessage="Please enter a Password" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:TextBox ID="txtRegPassword" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="ReqRegPass" runat="server" ControlToValidate="txtRegPassword" Display="Dynamic" ErrorMessage="Please enter a Password" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="row">
                         <div id="col6" class="col">
                             <label for="txtRePassword">Re-enter Password</label>
-                            <asp:TextBox ID="txtRePassword" class="form-control" runat="server"></asp:TextBox>
-                            <asp:CompareValidator ID="compPass" TextMode="Password" runat="server" ControlToCompare="txtRegPassword" Display="Dynamic" ControlToValidate="txtRePassword" ErrorMessage="Passwords must match!" ForeColor="#3333FF"></asp:CompareValidator>
+                            <asp:TextBox ID="txtRePassword" class="form-control" TextMode="Password" runat="server"></asp:TextBox>
+                            <asp:CompareValidator ID="compPass" runat="server" ControlToCompare="txtRegPassword" Display="Dynamic" ControlToValidate="txtRePassword" ErrorMessage="Passwords must match!" ForeColor="#3333FF"></asp:CompareValidator>
                         </div>
                     </div>
                     <br />

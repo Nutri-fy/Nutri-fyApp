@@ -1,13 +1,4 @@
-﻿@charset "utf-8";
-/*
-Template Name: Penyler
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
-File: Layout CSS
-*/
-
+﻿
 @import url("fontawesome-4.6.3.min.css");
 @import url("framework.css");
 
@@ -128,7 +119,7 @@ File: Layout CSS
 nav ul, nav ol{margin:0; padding:0; list-style:none;}
 
 #mainav, #breadcrumb, .sidebar nav{line-height:normal;}
-#mainav .drop::after, #mainav li li .drop::after, #breadcrumb li a::after, .sidebar nav a::after{position:absolute; font-family:"FontAwesome"; font-size:10px; line-height:10px;}
+#mainav .drop::after, #mainav li li .drop::after, #breadcrumb li a::after, .sidebar nav a::after{position:absolute; font-size:10px; line-height:10px;}
 
 /* Top Navigation */
 #mainav{}
@@ -361,7 +352,7 @@ table a, #comments a{background-color:inherit;}
 	.font-x2{font-size:1.4rem;}
 	.font-x3{font-size:1.6rem;}
 }
-#pnlDays {
+.pnlDays {
     position: relative;
     margin-top: 15%;
     left: 50%;
