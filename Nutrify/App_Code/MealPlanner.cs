@@ -24,6 +24,8 @@ public class MealPlanner
     List<Protein> proList = new List<Protein>();
     List<Carbs> carbList = new List<Carbs>();
     List<Fats> fatList = new List<Fats>();
+    List<Snacks> snackList = new List<Snacks>();
+    List<Vegs> vegList = new List<Vegs>();
     Dictionary<int, List<Protein>> dictionaryProtein;
     Dictionary<int, List<Carbs>> dictionaryCarbs;
     Dictionary<int, List<Fats>> dictionaryFats;
@@ -59,7 +61,7 @@ public class MealPlanner
                     prPro = Convert.ToDouble(reader[2]);
                     prCarb = Convert.ToDouble(reader[3]);
                     prFat = Convert.ToDouble(reader[4]);
-                   
+
                 }
             }
         }
@@ -73,10 +75,15 @@ public class MealPlanner
             UserConnect.Close();
 
             calcPro = (calories * prPro) / meals;
-            calcCarb = (calories * prCarb * 0.75) /meals;
-            calcSnacks = (calories * prCarb * 0.25) / meals;
+            calcCarb = (calories * prCarb * 0.75) / meals;
+            calcSnacks = (calories * prCarb * 0.25) / 3;
             calcFat = (calories * prFat) / meals;
             sqlLimit = 7 * meals;
+            makeProteinMeals();
+            makeCarbMeals();
+            makeFatMeals();
+            makeSnackMeals();
+            makeVegMeals();
         }
     }
 
@@ -94,10 +101,10 @@ public class MealPlanner
 
             cmd.Parameters.AddWithValue("@limit", sqlLimit);
 
-           
+
 
             cmd.CommandText = query;
-            
+
 
             UserConnect.Open();
             reader = cmd.ExecuteReader();
@@ -113,7 +120,7 @@ public class MealPlanner
                         carbohydrates = (double)reader["carbohyrdates"],
                         calories = (int)reader["calories"],
                         servingSize = 100
-                        
+
                     };
                     double factor = calcPro / protein.calories;
                     protein.protein = (int)(protein.protein * factor);
@@ -124,10 +131,10 @@ public class MealPlanner
                     proList.Add(protein);
                 }
             }
-            for(int i = 0; i < 7; i++)
+            for (int i = 0; i < 7; i++)
             {
                 List<Protein> proMeal = new List<Protein>();
-                for (int j=0; j< meals; j++)
+                for (int j = 0; j < meals; j++)
                 {
                     Random rdm = new Random();
 
@@ -228,7 +235,7 @@ public class MealPlanner
             {
                 while (reader.Read())
                 {
-                    Carbs carbs = new Carbs()
+                    Fats fats = new Fats()
                     {
                         name = reader["name"].ToString(),
                         protein = (int)reader["protein"],
@@ -238,27 +245,27 @@ public class MealPlanner
                         servingSize = 100
 
                     };
-                    double factor = calcCarb / carbs.calories;
-                    carbs.protein = (int)(carbs.protein * factor);
-                    carbs.fat = carbs.fat * factor;
-                    carbs.carbohydrates = carbs.carbohydrates * factor;
-                    carbs.calories = (int)(carbs.calories * factor);
-                    carbs.servingSize = (int)(carbs.servingSize * factor);
-                    carbList.Add(carbs);
+                    double factor = calcFat / fats.calories;
+                    fats.protein = (int)(fats.protein * factor);
+                    fats.fat = fats.fat * factor;
+                    fats.carbohydrates = fats.carbohydrates * factor;
+                    fats.calories = (int)(fats.calories * factor);
+                    fats.servingSize = (int)(fats.servingSize * factor);
+                    fatList.Add(fats);
                 }
             }
             for (int i = 0; i < 7; i++)
             {
-                List<Carbs> carbMeal = new List<Carbs>();
+                List<Fats> fatMeal = new List<Fats>();
                 for (int j = 0; j < meals; j++)
                 {
                     Random rdm = new Random();
 
                     int num = rdm.Next(0, proList.Count - 1);
-                    carbMeal.Add(carbList[num]);
-                    carbList.RemoveAt(num);
+                    fatMeal.Add(fatList[num]);
+                    fatList.RemoveAt(num);
                 }
-                dictionaryCarbs.Add(i, carbMeal);
+                dictionaryFats.Add(i, fatMeal);
             }
         }
         finally
@@ -266,6 +273,145 @@ public class MealPlanner
             cmd.Dispose();
             UserConnect.Close();
         }
+    }
+
+    public void makeSnackMeals()
+    {
+        dictionarySnacks = new Dictionary<int, List<Snacks>>();
+        UserConnect.ConnectionString = connString;
+        cmd = UserConnect.CreateCommand();
+
+        try
+        {
+            string query = "SELECT TOP @limit name, protein, fat, Carbohydrates, calories from Ingredients where foodGroup like 'Snacks' ORDER BY NEWID();";
+
+            cmd.Parameters.AddWithValue("@limit", (21));
+            cmd.CommandText = query;
+
+
+            UserConnect.Open();
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Snacks snacks = new Snacks()
+                    {
+                        name = reader["name"].ToString(),
+                        protein = (int)reader["protein"],
+                        fat = (double)reader["fat"],
+                        carbohydrates = (double)reader["carbohyrdates"],
+                        calories = (int)reader["calories"],
+                        servingSize = 100
+
+                    };
+                    double factor = calcSnacks / snacks.calories;
+                    snacks.protein = (int)(snacks.protein * factor);
+                    snacks.fat = snacks.fat * factor;
+                    snacks.carbohydrates = snacks.carbohydrates * factor;
+                    snacks.calories = (int)(snacks.calories * factor);
+                    snacks.servingSize = (int)(snacks.servingSize * factor);
+                    snackList.Add(snacks);
+                }
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                List<Snacks> snackMeal = new List<Snacks>();
+                for (int j = 0; j < 3; j++)
+                {
+                    Random rdm = new Random();
+
+                    int num = rdm.Next(0, proList.Count - 1);
+                    snackMeal.Add(snackList[num]);
+                    snackList.RemoveAt(num);
+                }
+                dictionarySnacks.Add(i, snackMeal);
+            }
+        }
+        finally
+        {
+            cmd.Dispose();
+            UserConnect.Close();
+        }
+    }
+
+    public void makeVegMeals()
+    {
+        dictionaryVeg = new Dictionary<int, List<Vegs>>();
+        UserConnect.ConnectionString = connString;
+        cmd = UserConnect.CreateCommand();
+
+        try
+        {
+            string query = "SELECT TOP @limit name from Ingredients where foodGroup like '%Vegetables%' and foodGroup NOT LIKE '%potato%' ORDER BY NEWID();";
+
+            cmd.Parameters.AddWithValue("@limit", sqlLimit);
+            cmd.CommandText = query;
+
+
+            UserConnect.Open();
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Vegs vegs = new Vegs()
+                    {
+                        name = reader["name"].ToString(),
+                        protein = (int)reader["protein"],
+                        fat = (double)reader["fat"],
+                        carbohydrates = (double)reader["carbohyrdates"],
+                        calories = (int)reader["calories"],
+                        servingSize = 100
+
+                    };
+                    vegList.Add(vegs);
+                }
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                List<Vegs> vegMeal = new List<Vegs>();
+                for (int j = 0; j < meals; j++)
+                {
+                    Random rdm = new Random();
+
+                    int num = rdm.Next(0, proList.Count - 1);
+                    vegMeal.Add(vegList[num]);
+                    vegList.RemoveAt(num);
+                }
+                dictionaryVeg.Add(i, vegMeal);
+            }
+        }
+        finally
+        {
+            cmd.Dispose();
+            UserConnect.Close();
+        }
+    }
+
+    public Dictionary<int, List<Protein>> getProteins()
+    {
+        return dictionaryProtein;
+    }
+
+    public Dictionary<int, List<Carbs>> getCarbs()
+    {
+        return dictionaryCarbs;
+    }
+
+    public Dictionary<int, List<Fats>> getFats()
+    {
+        return dictionaryFats;
+    }
+
+    public Dictionary<int, List<Snacks>> getSnacks()
+    {
+        return dictionarySnacks;
+    }
+
+    public Dictionary<int, List<Vegs>> getVegs()
+    {
+        return dictionaryVeg;
     }
 }
 
