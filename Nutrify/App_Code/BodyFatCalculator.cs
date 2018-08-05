@@ -55,6 +55,11 @@ public class BodyFatCalculator
 
     }
 
+    public int getGenderBFC()
+    {
+        return gender;
+    }
+
     public double calculateBFat(double weight, double wrist, double waist, double hip, double forearm)
     {
         double bFat = 0;
@@ -62,21 +67,23 @@ public class BodyFatCalculator
         if (gender == 1)
         {
             this.weight = weight;
+            weight = weight * 2.2;
             double factor1 = (weight * 1.082) + 94.42;
             double factor2 = waist * 4.15;
             double lean = factor1 - factor2;
-            bFat = ((weight - lean) * 100) / weight;
+            bFat = Math.Round((((weight - lean) / weight) * 100), 2);
         }
         else
         {
             this.weight = weight;
+            weight = weight * 2.2;
             double factor1 = (weight * 0.732) + 8.937;
             double factor2 = wrist / 3.140;
             double factor3 = waist * 0.157;
             double factor4 = hip * 0.249;
             double factor5 = forearm * 0.434;
             double lean = factor1 + factor2 - factor3 - factor4 + factor5;
-            bFat = ((weight - lean) * 100) / weight;
+            bFat = Math.Round((((weight - lean) / weight)*100), 2);
         }
 
         UserConnect.ConnectionString = connString;
