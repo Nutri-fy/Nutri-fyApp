@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for Register
+/// Contains Logic for the Register service
 /// </summary>
 public class Register
 {
