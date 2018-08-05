@@ -50,7 +50,6 @@
                             <div id="col1" class="col">
                                 <label for="txtRegUsername">Username</label>
                                 <img id="imgUsername" runat="server" src="img/empty.png" />
-                            </span>
                             <asp:TextBox ID="txtRegUsername" class="form-control" runat="server"> </asp:TextBox><asp:Button class="btn btn-primary" ID="btnValidateUsernameReg" runat="server" Text="Check Availability" OnClick="btnValidateUsernameReg_Click" CausesValidation="False" />
                         </div>
                     </div>

@@ -125,4 +125,32 @@ public class Register
             UserConnect.Close();
         }
     }
+
+    public int getRegisteredID(string uname, string pass)
+    {
+        UserConnect.ConnectionString = connString;
+        cmd = UserConnect.CreateCommand();
+        UserConnect.Open();
+        int id;
+        cmd.Parameters.AddWithValue("@Username", uname);
+        cmd.Parameters.AddWithValue("@Password", pass);
+        try
+        {
+ 
+                string queryID = "SELECT userID from UserInfo where userName like @Username AND password like @Password;";
+                cmd.CommandText = queryID;
+                id = Convert.ToInt32(cmd.ExecuteScalar());
+            return id;
+        }
+        catch (Exception e)
+        {
+            return 0;
+        }
+        finally
+        {
+
+            cmd.Dispose();
+            UserConnect.Close();
+        }
+    }
 }

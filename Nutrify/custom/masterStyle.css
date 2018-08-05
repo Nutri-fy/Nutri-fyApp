@@ -46,3 +46,19 @@
     padding: 3%;
     text-align: center;
 }
+
+#ContentPlaceHolder1_txtMBF {
+    margin-top: 0.5em;
+}
+
+#ContentPlaceHolder1_txtFBF {
+    margin-top: 0.5em;
+}
+
+#ContentPlaceHolder1_btnCalculateMF {
+    margin-left: 85%;
+}
+
+#ContentPlaceHolder1_btnCalculateFF{
+    margin-left: 85%;
+}

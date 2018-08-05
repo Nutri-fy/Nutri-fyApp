@@ -179,6 +179,8 @@ public partial class _Default : System.Web.UI.Page
             one.prFats = Convert.ToDouble(txtPrFat.Text);
             reg.sendRegister(one);
         }
+        int id = reg.getRegisteredID(one.userName, one.password);
+        this.Session.Add("sUserId", id);
         Response.Redirect("Welcome.aspx");
         Application_BeginRequest1();
 
