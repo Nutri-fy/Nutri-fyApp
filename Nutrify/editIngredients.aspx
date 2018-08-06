@@ -6,7 +6,6 @@
     <link href="custom/font-awesome.css" rel="stylesheet" />
 
     <link href="custom/style.css" rel="stylesheet" />
-    <body>
 
     <div class="content-wrapper">
         <div class="container">
@@ -57,6 +56,7 @@
                 </div>
 
             </div>
+
 
     
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="ingredientID" DataSourceID="admin">
@@ -124,7 +124,8 @@
                     <asp:Parameter Name="original_Fiber" Type="Single" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            </body>
+            </div>
+        </div>
 
     <br />
 
