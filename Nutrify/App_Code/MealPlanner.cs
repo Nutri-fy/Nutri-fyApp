@@ -58,9 +58,9 @@ public class MealPlanner
                 {
                     calories = Convert.ToDouble(reader[0]);
                     meals = Convert.ToInt32(reader[1]);
-                    prPro = Convert.ToDouble(reader[2]);
-                    prCarb = Convert.ToDouble(reader[3]);
-                    prFat = Convert.ToDouble(reader[4]);
+                    prPro = (Convert.ToDouble(reader[2])) / 100;
+                    prCarb = (Convert.ToDouble(reader[3])) / 100;
+                    prFat = (Convert.ToDouble(reader[4])) / 100;
 
                 }
             }
@@ -95,16 +95,11 @@ public class MealPlanner
 
         try
         {
-            string query = "SELECT TOP @limit foodGroup, name, protein, fat, Carbohydrates, calories from Ingredients where foodgroup like '%Poultry%'" +
+            string query = "SELECT TOP " + sqlLimit + " foodGroup, name, protein, fat, Carbohydrates, calories from Ingredients where foodgroup like '%Poultry%'" +
                 "OR foodGroup like '%Sausages%' OR foodGroup like '%Pork%' or foodGroup like '%Beef%' or foodGroup like '%Finfish%' or foodGroup like '%Lamb%' " +
                 "ORDER BY NEWID();";
 
-            cmd.Parameters.AddWithValue("@limit", sqlLimit);
-
-
-
             cmd.CommandText = query;
-
 
             UserConnect.Open();
             reader = cmd.ExecuteReader();
@@ -112,16 +107,16 @@ public class MealPlanner
             {
                 while (reader.Read())
                 {
-                    Protein protein = new Protein()
-                    {
-                        name = reader["name"].ToString(),
-                        protein = (int)reader["protein"],
-                        fat = (double)reader["fat"],
-                        carbohydrates = (double)reader["carbohyrdates"],
-                        calories = (int)reader["calories"],
-                        servingSize = 100
+                    Protein protein = new Protein();
 
-                    };
+                    protein.name = reader["name"].ToString();
+                    protein.protein = (int)reader["protein"];
+                    protein.fat = Convert.ToDouble(reader["fat"]);
+                    protein.carbohydrates = Convert.ToDouble(reader["carbohydrates"]);
+                    protein.calories = (int)reader["calories"];
+                    protein.servingSize = 100;
+
+
                     double factor = calcPro / protein.calories;
                     protein.protein = (int)(protein.protein * factor);
                     protein.fat = protein.fat * factor;
@@ -161,13 +156,11 @@ public class MealPlanner
 
         try
         {
-            string query = "SELECT TOP @limit name, protein, fat, Carbohydrates, calories from Ingredients where (name like '%potato%'" +
+            string query = "SELECT TOP " + sqlLimit + " name, protein, fat, Carbohydrates, calories from Ingredients where (name like '%potato%'" +
                 "OR name like '%pasta%' OR name like '%rice%' or name like '%macaroni%' or name like '%noodles%' or name like '%spaghetti%') and name NOT LIKE '%snack%'" +
                 "ORDER BY NEWID();";
 
-            cmd.Parameters.AddWithValue("@limit", sqlLimit);
             cmd.CommandText = query;
-
 
             UserConnect.Open();
             reader = cmd.ExecuteReader();
@@ -175,16 +168,16 @@ public class MealPlanner
             {
                 while (reader.Read())
                 {
-                    Carbs carbs = new Carbs()
-                    {
-                        name = reader["name"].ToString(),
-                        protein = (int)reader["protein"],
-                        fat = (double)reader["fat"],
-                        carbohydrates = (double)reader["carbohyrdates"],
-                        calories = (int)reader["calories"],
-                        servingSize = 100
+                    Carbs carbs = new Carbs();
 
-                    };
+                    carbs.name = reader["name"].ToString();
+                    carbs.protein = (int)reader["protein"];
+                    carbs.fat = Convert.ToDouble(reader["fat"]);
+                    carbs.carbohydrates = Convert.ToDouble(reader["carbohydrates"]);
+                    carbs.calories = (int)reader["calories"];
+                    carbs.servingSize = 100;
+
+
                     double factor = calcCarb / carbs.calories;
                     carbs.protein = (int)(carbs.protein * factor);
                     carbs.fat = carbs.fat * factor;
@@ -201,7 +194,7 @@ public class MealPlanner
                 {
                     Random rdm = new Random();
 
-                    int num = rdm.Next(0, proList.Count - 1);
+                    int num = rdm.Next(0, carbList.Count - 1);
                     carbMeal.Add(carbList[num]);
                     carbList.RemoveAt(num);
                 }
@@ -223,9 +216,8 @@ public class MealPlanner
 
         try
         {
-            string query = "SELECT TOP @limit name, protein, fat, Carbohydrates, calories from Ingredients where foodGroup like 'Fats and Oils' ORDER BY NEWID();";
+            string query = "SELECT TOP " + sqlLimit + " name, protein, fat, Carbohydrates, calories from Ingredients where foodGroup like 'Fats and Oils' ORDER BY NEWID();";
 
-            cmd.Parameters.AddWithValue("@limit", sqlLimit);
             cmd.CommandText = query;
 
 
@@ -235,16 +227,16 @@ public class MealPlanner
             {
                 while (reader.Read())
                 {
-                    Fats fats = new Fats()
-                    {
-                        name = reader["name"].ToString(),
-                        protein = (int)reader["protein"],
-                        fat = (double)reader["fat"],
-                        carbohydrates = (double)reader["carbohyrdates"],
-                        calories = (int)reader["calories"],
-                        servingSize = 100
+                    Fats fats = new Fats();
 
-                    };
+                    fats.name = reader["name"].ToString();
+                    fats.protein = (int)reader["protein"];
+                    fats.fat = Convert.ToDouble(reader["fat"]);
+                    fats.carbohydrates = Convert.ToDouble(reader["carbohydrates"]);
+                    fats.calories = (int)reader["calories"];
+                    fats.servingSize = 100;
+
+
                     double factor = calcFat / fats.calories;
                     fats.protein = (int)(fats.protein * factor);
                     fats.fat = fats.fat * factor;
@@ -261,7 +253,7 @@ public class MealPlanner
                 {
                     Random rdm = new Random();
 
-                    int num = rdm.Next(0, proList.Count - 1);
+                    int num = rdm.Next(0, fatList.Count - 1);
                     fatMeal.Add(fatList[num]);
                     fatList.RemoveAt(num);
                 }
@@ -283,9 +275,8 @@ public class MealPlanner
 
         try
         {
-            string query = "SELECT TOP @limit name, protein, fat, Carbohydrates, calories from Ingredients where foodGroup like 'Snacks' ORDER BY NEWID();";
+            string query = "SELECT TOP " + 21 + " name, protein, fat, Carbohydrates, calories from Ingredients where foodGroup like 'Snacks' ORDER BY NEWID();";
 
-            cmd.Parameters.AddWithValue("@limit", (21));
             cmd.CommandText = query;
 
 
@@ -295,16 +286,16 @@ public class MealPlanner
             {
                 while (reader.Read())
                 {
-                    Snacks snacks = new Snacks()
-                    {
-                        name = reader["name"].ToString(),
-                        protein = (int)reader["protein"],
-                        fat = (double)reader["fat"],
-                        carbohydrates = (double)reader["carbohyrdates"],
-                        calories = (int)reader["calories"],
-                        servingSize = 100
+                    Snacks snacks = new Snacks();
 
-                    };
+                    snacks.name = reader["name"].ToString();
+                    snacks.protein = (int)reader["protein"];
+                    snacks.fat = Convert.ToDouble(reader["fat"]);
+                    snacks.carbohydrates = Convert.ToDouble(reader["carbohydrates"]);
+                    snacks.calories = (int)reader["calories"];
+                    snacks.servingSize = 100;
+
+
                     double factor = calcSnacks / snacks.calories;
                     snacks.protein = (int)(snacks.protein * factor);
                     snacks.fat = snacks.fat * factor;
@@ -321,7 +312,7 @@ public class MealPlanner
                 {
                     Random rdm = new Random();
 
-                    int num = rdm.Next(0, proList.Count - 1);
+                    int num = rdm.Next(0, snackList.Count - 1);
                     snackMeal.Add(snackList[num]);
                     snackList.RemoveAt(num);
                 }
@@ -343,9 +334,8 @@ public class MealPlanner
 
         try
         {
-            string query = "SELECT TOP @limit name from Ingredients where foodGroup like '%Vegetables%' and foodGroup NOT LIKE '%potato%' ORDER BY NEWID();";
+            string query = "SELECT TOP " + sqlLimit + " name, fiber from Ingredients where foodGroup like '%Vegetables%' and foodGroup NOT LIKE '%potato%' ORDER BY NEWID();";
 
-            cmd.Parameters.AddWithValue("@limit", sqlLimit);
             cmd.CommandText = query;
 
 
@@ -355,16 +345,13 @@ public class MealPlanner
             {
                 while (reader.Read())
                 {
-                    Vegs vegs = new Vegs()
-                    {
-                        name = reader["name"].ToString(),
-                        protein = (int)reader["protein"],
-                        fat = (double)reader["fat"],
-                        carbohydrates = (double)reader["carbohyrdates"],
-                        calories = (int)reader["calories"],
-                        servingSize = 100
+                    Vegs vegs = new Vegs();
 
-                    };
+                    vegs.name = reader["name"].ToString();
+                    vegs.fiber = Convert.ToDouble(reader["fiber"].ToString());
+                    vegs.servingSize = 100;
+
+
                     vegList.Add(vegs);
                 }
             }
@@ -375,7 +362,7 @@ public class MealPlanner
                 {
                     Random rdm = new Random();
 
-                    int num = rdm.Next(0, proList.Count - 1);
+                    int num = rdm.Next(0, vegList.Count - 1);
                     vegMeal.Add(vegList[num]);
                     vegList.RemoveAt(num);
                 }
@@ -413,6 +400,12 @@ public class MealPlanner
     {
         return dictionaryVeg;
     }
+
+    public int getMeals()
+    {
+        return this.meals;
+    }
+
 }
 
 public class Protein
