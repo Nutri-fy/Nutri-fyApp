@@ -16,8 +16,7 @@ public partial class CalCount : System.Web.UI.Page
     {
         Table[] tableList = new Table[] { tbMonday, tbTuesday, tbWednesday, tbThursday, tbFriday, tbSaturday, tbSunday };
         string[] days = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-        //mp = new MealPlanner(Convert.ToInt32(Session["sUserId"]));
-        mp = new MealPlanner(1);
+        mp = new MealPlanner(Convert.ToInt32(Session["sUserId"]));
 
         Dictionary<int, List<Protein>> prDict = mp.getProteins();
         Dictionary<int, List<Carbs>> cbDict = mp.getCarbs();
@@ -31,6 +30,10 @@ public partial class CalCount : System.Web.UI.Page
             tableList[t].Rows.Add(dRow);
             TableCell dCell = new TableCell();
             dCell.Text = days[t];
+            dCell.Font.Bold = true;
+            dCell.ColumnSpan = 6;
+            dCell.ForeColor = System.Drawing.Color.White;
+            dCell.BackColor = System.Drawing.ColorTranslator.FromHtml("#33b5e5");
             dRow.Cells.Add(dCell);
 
             for (int m = 0; m < mp.getMeals(); m++)
@@ -40,6 +43,10 @@ public partial class CalCount : System.Web.UI.Page
                 tableList[t].Rows.Add(tRow);
                 TableCell tCell = new TableCell();
                 tCell.Text = "Meal" + (m + 1).ToString();
+                tCell.Font.Bold = true;
+                tCell.ColumnSpan = 6;
+                tCell.ForeColor = System.Drawing.Color.White;
+                tCell.BackColor = System.Drawing.ColorTranslator.FromHtml("#0d47a1");
                 tRow.Cells.Add(tCell);
 
                 TableRow tRow2 = new TableRow();
@@ -56,6 +63,12 @@ public partial class CalCount : System.Web.UI.Page
                 hCell4.Text = "Fats(g)";
                 TableCell hCell5 = new TableCell();
                 hCell5.Text = "Serving Size(g)";
+                hCell.Font.Bold = true;
+                hCell1.Font.Bold = true;
+                hCell2.Font.Bold = true;
+                hCell3.Font.Bold = true;
+                hCell4.Font.Bold = true;
+                hCell5.Font.Bold = true;
                 tRow2.Cells.Add(hCell);
                 tRow2.Cells.Add(hCell1);
                 tRow2.Cells.Add(hCell2);
@@ -75,9 +88,9 @@ public partial class CalCount : System.Web.UI.Page
                 pCell.Text = p.name.ToString();
                 pCell1.Text = p.calories.ToString();
                 pCell2.Text = p.protein.ToString();
-                pCell3.Text = p.carbohydrates.ToString();
-                pCell4.Text = p.fat.ToString();
-                pCell5.Text = p.servingSize.ToString();
+                pCell3.Text = Math.Round(p.carbohydrates, 2).ToString();
+                pCell4.Text = Math.Round(p.fat,2).ToString();
+                pCell5.Text = Math.Round(p.servingSize, 2).ToString();
                 tRow3.Cells.Add(pCell);
                 tRow3.Cells.Add(pCell1);
                 tRow3.Cells.Add(pCell2);
@@ -97,9 +110,9 @@ public partial class CalCount : System.Web.UI.Page
                 cCell.Text = c.name.ToString();
                 cCell1.Text = c.calories.ToString();
                 cCell2.Text = c.protein.ToString();
-                cCell3.Text = c.carbohydrates.ToString();
-                cCell4.Text = c.fat.ToString();
-                cCell5.Text = c.servingSize.ToString();
+                cCell3.Text = Math.Round(c.carbohydrates, 2).ToString();
+                cCell4.Text = Math.Round(c.fat, 2).ToString();
+                cCell5.Text = Math.Round(c.servingSize, 2).ToString();
                 tRow4.Cells.Add(cCell);
                 tRow4.Cells.Add(cCell1);
                 tRow4.Cells.Add(cCell2);
@@ -119,9 +132,9 @@ public partial class CalCount : System.Web.UI.Page
                 fCell.Text = f.name.ToString();
                 fCell1.Text = f.calories.ToString();
                 fCell2.Text = f.protein.ToString();
-                fCell3.Text = f.carbohydrates.ToString();
-                fCell4.Text = f.fat.ToString();
-                fCell5.Text = f.servingSize.ToString();
+                fCell3.Text = Math.Round(f.carbohydrates, 2).ToString();
+                fCell4.Text = Math.Round(f.fat, 2).ToString();
+                fCell5.Text = Math.Round(f.servingSize, 2).ToString();
                 tRow5.Cells.Add(fCell);
                 tRow5.Cells.Add(fCell1);
                 tRow5.Cells.Add(fCell2);
@@ -129,9 +142,9 @@ public partial class CalCount : System.Web.UI.Page
                 tRow5.Cells.Add(fCell4);
                 tRow5.Cells.Add(fCell5);
 
-                if (m == 2 || m == 4)
+                if (m ==2 || m==4)
                 {
-
+                    int mm = m - 2;
                     TableRow tRow6 = new TableRow();
                     tableList[t].Rows.Add(tRow6);
                     TableCell sCell = new TableCell();
@@ -140,13 +153,13 @@ public partial class CalCount : System.Web.UI.Page
                     TableCell sCell3 = new TableCell();
                     TableCell sCell4 = new TableCell();
                     TableCell sCell5 = new TableCell();
-                    Snacks s = skDict[t].ElementAt(m);
+                    Snacks s = skDict[t].ElementAt(mm);
                     sCell.Text = s.name.ToString();
                     sCell1.Text = s.calories.ToString();
                     sCell2.Text = s.protein.ToString();
-                    sCell3.Text = s.carbohydrates.ToString();
-                    sCell4.Text = s.fat.ToString();
-                    sCell5.Text = s.servingSize.ToString();
+                    sCell3.Text = Math.Round(s.carbohydrates, 2).ToString();
+                    sCell4.Text = Math.Round(s.fat, 2).ToString();
+                    sCell5.Text = Math.Round(s.servingSize, 2).ToString();
                     tRow6.Cells.Add(sCell);
                     tRow6.Cells.Add(sCell1);
                     tRow6.Cells.Add(sCell2);
@@ -166,13 +179,17 @@ public partial class CalCount : System.Web.UI.Page
                 TableCell vCell5 = new TableCell();
                 Vegs v = vDict[t].ElementAt(m);
                 vCell.Text = v.name.ToString();
-                vCell1.Text = "Calories: " + v.calories.ToString();
-                vCell2.Text = "Fiber(g): " + v.fiber.ToString();
-                vCell3.Text = "Serving size(g): " + v.servingSize.ToString();
+                vCell1.Text = v.calories.ToString();
+                vCell2.Text = "<b>Fiber(g):</b>  " + Math.Round(v.fiber, 2).ToString();
+                vCell5.Text = Math.Round(v.servingSize, 2).ToString(); 
+
+                vCell2.ColumnSpan = 3;
+                vCell2.HorizontalAlign = HorizontalAlign.Center;
                 tRow7.Cells.Add(vCell);
                 tRow7.Cells.Add(vCell1);
                 tRow7.Cells.Add(vCell2);
-                tRow7.Cells.Add(vCell3);
+                tRow7.Cells.Add(vCell5);
+
             }
         }
     }
