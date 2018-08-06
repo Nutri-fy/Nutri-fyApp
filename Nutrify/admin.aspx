@@ -31,7 +31,7 @@
                         <h5>Website Hits </h5>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
+                <div  class="col-md-3 col-sm-3 col-xs-6">
                     <div class="dashboard-div-wrapper bk-clr-two">
                         <i class="fa fa-edit dashboard-div-icon"></i>
                         <div class="progress progress-striped active">
