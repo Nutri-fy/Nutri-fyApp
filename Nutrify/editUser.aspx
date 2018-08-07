@@ -36,7 +36,7 @@
                         <i class="fa fa-edit dashboard-div-icon"></i>
                         <div class="progress progress-striped active">
                         </div>
-                        <h5>Edit Users </h5>
+                        <h5> <a href="editUser.aspx">Edit Users </a></h5>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
@@ -52,7 +52,7 @@
                         <i class="fa fa-bell-o dashboard-div-icon"></i>
                         <div class="progress progress-striped active">
                         </div>
-                        <h5>Alerts </h5>
+                        <h5> <a href="editIngredients.aspx">Edit Ingredients </a></h5>
                     </div>
                 </div>
 
@@ -76,9 +76,6 @@
                     <asp:BoundField DataField="calories" HeaderText="calories" SortExpression="calories" />
                     <asp:BoundField DataField="numOfMeals" HeaderText="numOfMeals" SortExpression="numOfMeals" />
                     <asp:BoundField DataField="goal" HeaderText="goal" SortExpression="goal" />
-                    <asp:BoundField DataField="prPro" HeaderText="prPro" SortExpression="prPro" />
-                    <asp:BoundField DataField="prCarb" HeaderText="prCarb" SortExpression="prCarb" />
-                    <asp:BoundField DataField="prFats" HeaderText="prFats" SortExpression="prFats" />
                 </Columns>
                 <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                 <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -90,7 +87,7 @@
                 <SortedDescendingCellStyle BackColor="#F1E5CE" />
                 <SortedDescendingHeaderStyle BackColor="#93451F" />
             </asp:GridView>
-            <asp:SqlDataSource ID="admin" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:Nutri-fyConnectionString %>" DeleteCommand="DELETE FROM [UserInfo] WHERE [userID] = @original_userID AND [userName] = @original_userName AND [password] = @original_password AND (([firstName] = @original_firstName) OR ([firstName] IS NULL AND @original_firstName IS NULL)) AND (([lastName] = @original_lastName) OR ([lastName] IS NULL AND @original_lastName IS NULL)) AND [email] = @original_email AND (([isAdmin] = @original_isAdmin) OR ([isAdmin] IS NULL AND @original_isAdmin IS NULL)) AND (([age] = @original_age) OR ([age] IS NULL AND @original_age IS NULL)) AND (([gender] = @original_gender) OR ([gender] IS NULL AND @original_gender IS NULL)) AND (([height] = @original_height) OR ([height] IS NULL AND @original_height IS NULL)) AND (([weight] = @original_weight) OR ([weight] IS NULL AND @original_weight IS NULL)) AND (([activity] = @original_activity) OR ([activity] IS NULL AND @original_activity IS NULL)) AND (([calories] = @original_calories) OR ([calories] IS NULL AND @original_calories IS NULL)) AND (([numOfMeals] = @original_numOfMeals) OR ([numOfMeals] IS NULL AND @original_numOfMeals IS NULL)) AND (([goal] = @original_goal) OR ([goal] IS NULL AND @original_goal IS NULL)) AND (([prPro] = @original_prPro) OR ([prPro] IS NULL AND @original_prPro IS NULL)) AND (([prCarb] = @original_prCarb) OR ([prCarb] IS NULL AND @original_prCarb IS NULL)) AND (([prFats] = @original_prFats) OR ([prFats] IS NULL AND @original_prFats IS NULL))" InsertCommand="INSERT INTO [UserInfo] ([userName], [password], [firstName], [lastName], [email], [isAdmin], [age], [gender], [height], [weight], [activity], [calories], [numOfMeals], [goal], [prPro], [prCarb], [prFats]) VALUES (@userName, @password, @firstName, @lastName, @email, @isAdmin, @age, @gender, @height, @weight, @activity, @calories, @numOfMeals, @goal, @prPro, @prCarb, @prFats)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [UserInfo]" UpdateCommand="UPDATE [UserInfo] SET [userName] = @userName, [password] = @password, [firstName] = @firstName, [lastName] = @lastName, [email] = @email, [isAdmin] = @isAdmin, [age] = @age, [gender] = @gender, [height] = @height, [weight] = @weight, [activity] = @activity, [calories] = @calories, [numOfMeals] = @numOfMeals, [goal] = @goal, [prPro] = @prPro, [prCarb] = @prCarb, [prFats] = @prFats WHERE [userID] = @original_userID AND [userName] = @original_userName AND [password] = @original_password AND (([firstName] = @original_firstName) OR ([firstName] IS NULL AND @original_firstName IS NULL)) AND (([lastName] = @original_lastName) OR ([lastName] IS NULL AND @original_lastName IS NULL)) AND [email] = @original_email AND (([isAdmin] = @original_isAdmin) OR ([isAdmin] IS NULL AND @original_isAdmin IS NULL)) AND (([age] = @original_age) OR ([age] IS NULL AND @original_age IS NULL)) AND (([gender] = @original_gender) OR ([gender] IS NULL AND @original_gender IS NULL)) AND (([height] = @original_height) OR ([height] IS NULL AND @original_height IS NULL)) AND (([weight] = @original_weight) OR ([weight] IS NULL AND @original_weight IS NULL)) AND (([activity] = @original_activity) OR ([activity] IS NULL AND @original_activity IS NULL)) AND (([calories] = @original_calories) OR ([calories] IS NULL AND @original_calories IS NULL)) AND (([numOfMeals] = @original_numOfMeals) OR ([numOfMeals] IS NULL AND @original_numOfMeals IS NULL)) AND (([goal] = @original_goal) OR ([goal] IS NULL AND @original_goal IS NULL)) AND (([prPro] = @original_prPro) OR ([prPro] IS NULL AND @original_prPro IS NULL)) AND (([prCarb] = @original_prCarb) OR ([prCarb] IS NULL AND @original_prCarb IS NULL)) AND (([prFats] = @original_prFats) OR ([prFats] IS NULL AND @original_prFats IS NULL))">
+            <asp:SqlDataSource ID="admin" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:Nutri-fyConnectionString %>" DeleteCommand="DELETE FROM [UserInfo] WHERE [userID] = @original_userID AND [userName] = @original_userName AND [password] = @original_password AND (([firstName] = @original_firstName) OR ([firstName] IS NULL AND @original_firstName IS NULL)) AND (([lastName] = @original_lastName) OR ([lastName] IS NULL AND @original_lastName IS NULL)) AND [email] = @original_email AND (([isAdmin] = @original_isAdmin) OR ([isAdmin] IS NULL AND @original_isAdmin IS NULL)) AND (([age] = @original_age) OR ([age] IS NULL AND @original_age IS NULL)) AND (([gender] = @original_gender) OR ([gender] IS NULL AND @original_gender IS NULL)) AND (([height] = @original_height) OR ([height] IS NULL AND @original_height IS NULL)) AND (([weight] = @original_weight) OR ([weight] IS NULL AND @original_weight IS NULL)) AND (([activity] = @original_activity) OR ([activity] IS NULL AND @original_activity IS NULL)) AND (([calories] = @original_calories) OR ([calories] IS NULL AND @original_calories IS NULL)) AND (([numOfMeals] = @original_numOfMeals) OR ([numOfMeals] IS NULL AND @original_numOfMeals IS NULL)) AND (([goal] = @original_goal) OR ([goal] IS NULL AND @original_goal IS NULL))" InsertCommand="INSERT INTO [UserInfo] ([userName], [password], [firstName], [lastName], [email], [isAdmin], [age], [gender], [height], [weight], [activity], [calories], [numOfMeals], [goal]) VALUES (@userName, @password, @firstName, @lastName, @email, @isAdmin, @age, @gender, @height, @weight, @activity, @calories, @numOfMeals, @goal)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [userID], [userName], [password], [firstName], [lastName], [email], [isAdmin], [age], [gender], [height], [weight], [activity], [calories], [numOfMeals], [goal] FROM [UserInfo]" UpdateCommand="UPDATE [UserInfo] SET [userName] = @userName, [password] = @password, [firstName] = @firstName, [lastName] = @lastName, [email] = @email, [isAdmin] = @isAdmin, [age] = @age, [gender] = @gender, [height] = @height, [weight] = @weight, [activity] = @activity, [calories] = @calories, [numOfMeals] = @numOfMeals, [goal] = @goal WHERE [userID] = @original_userID AND [userName] = @original_userName AND [password] = @original_password AND (([firstName] = @original_firstName) OR ([firstName] IS NULL AND @original_firstName IS NULL)) AND (([lastName] = @original_lastName) OR ([lastName] IS NULL AND @original_lastName IS NULL)) AND [email] = @original_email AND (([isAdmin] = @original_isAdmin) OR ([isAdmin] IS NULL AND @original_isAdmin IS NULL)) AND (([age] = @original_age) OR ([age] IS NULL AND @original_age IS NULL)) AND (([gender] = @original_gender) OR ([gender] IS NULL AND @original_gender IS NULL)) AND (([height] = @original_height) OR ([height] IS NULL AND @original_height IS NULL)) AND (([weight] = @original_weight) OR ([weight] IS NULL AND @original_weight IS NULL)) AND (([activity] = @original_activity) OR ([activity] IS NULL AND @original_activity IS NULL)) AND (([calories] = @original_calories) OR ([calories] IS NULL AND @original_calories IS NULL)) AND (([numOfMeals] = @original_numOfMeals) OR ([numOfMeals] IS NULL AND @original_numOfMeals IS NULL)) AND (([goal] = @original_goal) OR ([goal] IS NULL AND @original_goal IS NULL))">
                 <DeleteParameters>
                     <asp:Parameter Name="original_userID" Type="Int32" />
                     <asp:Parameter Name="original_userName" Type="String" />
@@ -107,9 +104,6 @@
                     <asp:Parameter Name="original_calories" Type="Decimal" />
                     <asp:Parameter Name="original_numOfMeals" Type="Int32" />
                     <asp:Parameter Name="original_goal" Type="Int32" />
-                    <asp:Parameter Name="original_prPro" Type="Decimal" />
-                    <asp:Parameter Name="original_prCarb" Type="Decimal" />
-                    <asp:Parameter Name="original_prFats" Type="Decimal" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="userName" Type="String" />
@@ -126,9 +120,6 @@
                     <asp:Parameter Name="calories" Type="Decimal" />
                     <asp:Parameter Name="numOfMeals" Type="Int32" />
                     <asp:Parameter Name="goal" Type="Int32" />
-                    <asp:Parameter Name="prPro" Type="Decimal" />
-                    <asp:Parameter Name="prCarb" Type="Decimal" />
-                    <asp:Parameter Name="prFats" Type="Decimal" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="userName" Type="String" />
@@ -145,9 +136,6 @@
                     <asp:Parameter Name="calories" Type="Decimal" />
                     <asp:Parameter Name="numOfMeals" Type="Int32" />
                     <asp:Parameter Name="goal" Type="Int32" />
-                    <asp:Parameter Name="prPro" Type="Decimal" />
-                    <asp:Parameter Name="prCarb" Type="Decimal" />
-                    <asp:Parameter Name="prFats" Type="Decimal" />
                     <asp:Parameter Name="original_userID" Type="Int32" />
                     <asp:Parameter Name="original_userName" Type="String" />
                     <asp:Parameter Name="original_password" Type="String" />
@@ -163,9 +151,6 @@
                     <asp:Parameter Name="original_calories" Type="Decimal" />
                     <asp:Parameter Name="original_numOfMeals" Type="Int32" />
                     <asp:Parameter Name="original_goal" Type="Int32" />
-                    <asp:Parameter Name="original_prPro" Type="Decimal" />
-                    <asp:Parameter Name="original_prCarb" Type="Decimal" />
-                    <asp:Parameter Name="original_prFats" Type="Decimal" />
                 </UpdateParameters>
             </asp:SqlDataSource>
 

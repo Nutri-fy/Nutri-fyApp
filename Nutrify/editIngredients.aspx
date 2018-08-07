@@ -35,7 +35,7 @@
                         <i class="fa fa-edit dashboard-div-icon"></i>
                         <div class="progress progress-striped active">
                         </div>
-                        <h5>Edit Users </h5>
+                       <h5> <a href="editUser.aspx">Edit Users </a></h5>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
@@ -51,7 +51,7 @@
                         <i class="fa fa-bell-o dashboard-div-icon"></i>
                         <div class="progress progress-striped active">
                         </div>
-                        <h5>Alerts </h5>
+                        <h5> <a href="editIngredients.aspx">Edit Users </a></h5>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
 
 
     
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="ingredientID" DataSourceID="admin">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="ingredientID" DataSourceID="admin" Width="497px">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="ingredientID" HeaderText="ingredientID" InsertVisible="False" ReadOnly="True" SortExpression="ingredientID" />
@@ -88,40 +88,40 @@
                     <asp:Parameter Name="original_foodGroup" Type="String" />
                     <asp:Parameter Name="original_name" Type="String" />
                     <asp:Parameter Name="original_Protein" Type="Int32" />
-                    <asp:Parameter Name="original_Fat" Type="Single" />
-                    <asp:Parameter Name="original_Carbohydrates" Type="Single" />
-                    <asp:Parameter Name="original_Calories" Type="Int16" />
-                    <asp:Parameter Name="original_Sugar" Type="Single" />
-                    <asp:Parameter Name="original_Fiber" Type="Single" />
+                    <asp:Parameter Name="original_Fat" Type="Decimal" />
+                    <asp:Parameter Name="original_Carbohydrates" Type="Decimal" />
+                    <asp:Parameter Name="original_Calories" Type="Int32" />
+                    <asp:Parameter Name="original_Sugar" Type="Decimal" />
+                    <asp:Parameter Name="original_Fiber" Type="Decimal" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="foodGroup" Type="String" />
                     <asp:Parameter Name="name" Type="String" />
                     <asp:Parameter Name="Protein" Type="Int32" />
-                    <asp:Parameter Name="Fat" Type="Single" />
-                    <asp:Parameter Name="Carbohydrates" Type="Single" />
-                    <asp:Parameter Name="Calories" Type="Int16" />
-                    <asp:Parameter Name="Sugar" Type="Single" />
-                    <asp:Parameter Name="Fiber" Type="Single" />
+                    <asp:Parameter Name="Fat" Type="Decimal" />
+                    <asp:Parameter Name="Carbohydrates" Type="Decimal" />
+                    <asp:Parameter Name="Calories" Type="Int32" />
+                    <asp:Parameter Name="Sugar" Type="Decimal" />
+                    <asp:Parameter Name="Fiber" Type="Decimal" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="foodGroup" Type="String" />
                     <asp:Parameter Name="name" Type="String" />
                     <asp:Parameter Name="Protein" Type="Int32" />
-                    <asp:Parameter Name="Fat" Type="Single" />
-                    <asp:Parameter Name="Carbohydrates" Type="Single" />
-                    <asp:Parameter Name="Calories" Type="Int16" />
-                    <asp:Parameter Name="Sugar" Type="Single" />
-                    <asp:Parameter Name="Fiber" Type="Single" />
+                    <asp:Parameter Name="Fat" Type="Decimal" />
+                    <asp:Parameter Name="Carbohydrates" Type="Decimal" />
+                    <asp:Parameter Name="Calories" Type="Int32" />
+                    <asp:Parameter Name="Sugar" Type="Decimal" />
+                    <asp:Parameter Name="Fiber" Type="Decimal" />
                     <asp:Parameter Name="original_ingredientID" Type="Int32" />
                     <asp:Parameter Name="original_foodGroup" Type="String" />
                     <asp:Parameter Name="original_name" Type="String" />
                     <asp:Parameter Name="original_Protein" Type="Int32" />
-                    <asp:Parameter Name="original_Fat" Type="Single" />
-                    <asp:Parameter Name="original_Carbohydrates" Type="Single" />
-                    <asp:Parameter Name="original_Calories" Type="Int16" />
-                    <asp:Parameter Name="original_Sugar" Type="Single" />
-                    <asp:Parameter Name="original_Fiber" Type="Single" />
+                    <asp:Parameter Name="original_Fat" Type="Decimal" />
+                    <asp:Parameter Name="original_Carbohydrates" Type="Decimal" />
+                    <asp:Parameter Name="original_Calories" Type="Int32" />
+                    <asp:Parameter Name="original_Sugar" Type="Decimal" />
+                    <asp:Parameter Name="original_Fiber" Type="Decimal" />
                 </UpdateParameters>
             </asp:SqlDataSource>
             </div>

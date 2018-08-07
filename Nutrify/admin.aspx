@@ -31,12 +31,12 @@
                         <h5>Website Hits </h5>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
+                <div  class="col-md-3 col-sm-3 col-xs-6">
                     <div class="dashboard-div-wrapper bk-clr-two">
                         <i class="fa fa-edit dashboard-div-icon"></i>
                         <div class="progress progress-striped active">
                         </div>
-                        <h5>Edit Users </h5>
+                       <h5> <a href="editUser.aspx">Edit Users </a></h5>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
@@ -52,7 +52,7 @@
                         <i class="fa fa-bell-o dashboard-div-icon"></i>
                         <div class="progress progress-striped active">
                         </div>
-                        <h5>Alerts </h5>
+                        <h5> <a href="editIngredients.aspx">Edit Ingredients </a></h5>
                     </div>
                 </div>
 
