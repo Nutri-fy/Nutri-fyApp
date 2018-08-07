@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-/// <summary> hidfhidfh
+/// <summary>
 /// Summary description for Login
 /// </summary>
 public class Login
@@ -14,6 +14,8 @@ public class Login
     SqlCommand cmd;
 
     public int userID;
+
+    public int isAdmin;
     
     public bool isLogin(string uname, string pass)
     {
@@ -26,9 +28,6 @@ public class Login
         {
             string query = "SELECT COUNT(*) from UserInfo where userName like @Username AND password like @Password;";
 
-           // SqlParameter userepar = new SqlParameter();
-          //  SqlParameter passpar = new SqlParameter();
-
             cmd.CommandText = query;
             cmd.Parameters.AddWithValue("@Username", uname);
             cmd.Parameters.AddWithValue("@Password", pass);
@@ -36,9 +35,18 @@ public class Login
             string result = cmd.ExecuteScalar().ToString();
             if (result=="1")
             {
-                string queryID = "SELECT userID from UserInfo where userName like @Username AND password like @Password;";
+                string queryID = "SELECT userID, isAdmin from UserInfo where userName like @Username AND password like @Password;";
                 cmd.CommandText = queryID;
-                userID = Convert.ToInt32(cmd.ExecuteScalar());
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        userID = Convert.ToInt32(reader[0]);
+                        isAdmin = Convert.ToInt32(reader[1]);
+                    }
+                }
+               
                 return true;
             }
             else
@@ -60,6 +68,11 @@ public class Login
     {
 
         return userID;
+    }
+
+    public int getIsAdmin()
+    {
+        return isAdmin;
     }
 
 }

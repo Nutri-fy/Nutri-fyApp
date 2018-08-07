@@ -121,7 +121,15 @@ public partial class _Default : System.Web.UI.Page
         if (loginSuccess)
         {
             this.Session.Add("sUserId", userLog.getUserId());
-            Response.Redirect("hubv2.aspx");
+            int redirectHub = userLog.getIsAdmin();
+            if (redirectHub == 1)
+            {
+                Response.Redirect("admin.aspx");
+            }
+            else
+            {
+                Response.Redirect("hubv2.aspx");
+            }
         }
         else
         {
