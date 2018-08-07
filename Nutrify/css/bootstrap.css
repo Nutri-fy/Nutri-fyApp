@@ -218,6 +218,7 @@ svg:not(:root) {
 table {
   border-collapse: collapse;
     height: 32px;
+    margin-right: 2px;
 }
 
 caption {

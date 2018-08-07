@@ -46,19 +46,111 @@
     padding: 3%;
     text-align: center;
 }
-
-#ContentPlaceHolder1_txtMBF {
-    margin-top: 0.5em;
+#ContentPlaceHolder1_lblUserName {
+    margin-left: 30%;
+    font-size: 50px;
+    color: white;
 }
-
-#ContentPlaceHolder1_txtFBF {
-    margin-top: 0.5em;
+#ContentPlaceHolder1_tbFirstName {
+    height: 32px;
+    margin-left: 25%;
+    border-radius: 10px;
+    width: 500px;
 }
-
-#ContentPlaceHolder1_btnCalculateMF {
-    margin-left: 85%;
+#ContentPlaceHolder1_tbLastName {
+    height: 32px;
+    margin-left: 25%;
+    border-radius: 10px;
+    width: 500px;
 }
-
-#ContentPlaceHolder1_btnCalculateFF{
-    margin-left: 85%;
+#ContentPlaceHolder1_tbPassword1 {
+    height: 32px;
+    margin-left: 25%;
+    border-radius: 10px;
+    width: 500px;
+}
+#ContentPlaceHolder1_tbPassword2 {
+    height: 32px;
+    margin-left: 25%;
+    border-radius: 10px;
+    width: 500px;
+}
+#ContentPlaceHolder1_tbEmail {
+    height: 32px;
+    margin-left: 25%;
+    border-radius: 10px;
+    width: 500px;
+}
+#ContentPlaceHolder1_tbAge {
+    height: 32px;
+    margin-left: 25%;
+    border-radius: 10px;
+    width: 500px;
+}
+#ContentPlaceHolder1_Label1 {
+    margin-left: 25.5%;
+    color: white;
+}
+#ContentPlaceHolder1_Label2 {
+    margin-left: 25.5%;
+    color: white;
+}
+#ContentPlaceHolder1_Label3 {
+    margin-left: 25.5%;
+    color: white;
+}
+#ContentPlaceHolder1_Label4 {
+    margin-left: 25.5%;
+    color: white;
+}
+#ContentPlaceHolder1_Label5 {
+    margin-left: 25.5%;
+    color: white;
+}
+#ContentPlaceHolder1_Label6 {
+    margin-left: 25.5%;
+    color: white;
+}
+#ContentPlaceHolder1_regEmail {
+    color: red;
+    display: inline;
+    margin-left: 25%;
+}
+#ContentPlaceHolder1_RequiredFieldValidator2 {
+    color: Red;
+    display: none;
+    margin-left: 25%;
+}
+#ContentPlaceHolder1_ComparePass {
+    color: Red;
+    display: none;
+    margin-left: 49.5%;
+}
+ContentPlaceHolder1_ReqEmail {
+    color: red;
+    display: inline;
+    margin-left: 25%;
+}
+#ContentPlaceHolder1_RequiredFieldValidator1 {
+    color: Red;
+    display: none;
+    margin-left: 25%;
+}
+#ContentPlaceHolder1_RequiredFieldValidator4 {
+    color: Red;
+    display: none;
+    margin-left: 25%;
+}
+#ContentPlaceHolder1_RequiredFieldValidator3 {
+    color: Red;
+    display: none;
+    margin-left: 25%;
+}
+#ContentPlaceHolder1_btnSave {
+    margin-left = 26%;
+}
+#ContentPlaceHolder1_btnCancel {
+    margin-left: 45%;
+    margin-top: -2.5%;
+    margin-bottom: 21%;
 }
