@@ -39,7 +39,7 @@
     height: 250px;
    margin-left: 25%;
     margin-right: 25%;
-    margin-top: 7%;
+    margin-top: 5%;
 }
 
 #innerIntro{
@@ -61,4 +61,40 @@
 
 #ContentPlaceHolder1_btnCalculateFF{
     margin-left: 85%;
+}
+
+#ContentPlaceHolder1_GridView1 {
+    border-collapse: collapse;
+}
+
+#gridViewContainer{
+    position:relative;
+    overflow-x:auto;
+    width: 800px;
+    text-align:center;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+#divBtn {
+    position: relative;
+    width: 800px;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 0.5%;
+}
+
+#ContentPlaceHolder1_btnChangePassword {
+    position:relative;
+    margin-left: 80%;
+}
+
+
+#dChangePassword {
+    position: relative;
+    width: 200px;
+    text-align: center;
+    margin-left: 25%;
+    background-color: azure;
+    color: black;
 }
