@@ -58,7 +58,8 @@
 
             </div>
 
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="userID" DataSourceID="admin">
+            <div id="containerGridUsers" runat="server">
+            <asp:GridView ID="GridViewUsers1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="userID" DataSourceID="admin">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="userID" HeaderText="userID" InsertVisible="False" ReadOnly="True" SortExpression="userID" />
@@ -153,19 +154,9 @@
                     <asp:Parameter Name="original_goal" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-
+                </div>
 
      </div>
      <br />
-            <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    &copy; Nutrify 
-                </div>
-
-            </div>
-        </div>
-    </footer>
 </asp:Content>
 

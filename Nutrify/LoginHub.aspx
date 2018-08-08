@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 
-    <div>
         
     <link href="custom/font-awesome.css" rel="stylesheet" />
 
@@ -36,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <asp:Button  class="btn btn-primary" runat="server" Text="Go to your stats" OnClick="btnStat_Click"  />
+            <asp:Button  class="btn btn-primary" runat="server" Text="Go To Your Custom Meal Plans" OnClick="btnStat_Click"  />
     </div>
 
 

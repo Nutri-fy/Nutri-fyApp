@@ -121,6 +121,7 @@ public partial class _Default : System.Web.UI.Page
         if (loginSuccess)
         {
             this.Session.Add("sUserId", userLog.getUserId());
+            this.Session.Add("sIsAdmin", userLog.getIsAdmin());
             int redirectHub = userLog.getIsAdmin();
             if (redirectHub == 1)
             {
@@ -128,7 +129,7 @@ public partial class _Default : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("hubv2.aspx");
+                Response.Redirect("LoginHub.aspx");
             }
         }
         else

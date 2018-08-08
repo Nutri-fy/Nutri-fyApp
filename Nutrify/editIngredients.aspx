@@ -58,8 +58,8 @@
             </div>
 
 
-    
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="ingredientID" DataSourceID="admin" Width="497px">
+    <div id="containerGridIngredients" runat="server">
+            <asp:GridView ID="GridViewIngredients1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="ingredientID" DataSourceID="admin" Width="497px">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="ingredientID" HeaderText="ingredientID" InsertVisible="False" ReadOnly="True" SortExpression="ingredientID" />
@@ -124,21 +124,12 @@
                     <asp:Parameter Name="original_Fiber" Type="Decimal" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+        </div>
             </div>
         </div>
 
     <br />
 
-                        <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    &copy; Nutrify 
-                </div>
-
-            </div>
-        </div>
-    </footer>
 
 
     

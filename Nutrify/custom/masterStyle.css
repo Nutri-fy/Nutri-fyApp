@@ -98,3 +98,17 @@
     background-color: azure;
     color: black;
 }
+
+#ContentPlaceHolder1_containerGridIngredients{
+    width: 1140px !important;
+    overflow-x: auto !important;
+}
+
+#ContentPlaceHolder1_GridViewIngredients1 {
+    width: 100% !important;
+}
+
+#ContentPlaceHolder1_containerGridUsers {
+    width: 1140px !important;
+    overflow-x: auto !important;
+}
